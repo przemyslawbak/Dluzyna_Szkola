@@ -1,0 +1,55 @@
+24.08 - start moving to core2 mvc, created new project, created aktualnosci dbContext,
+cobtroller, creating controlers `index`, `details` methods,
+25.08 - 27.08 - **DAYS OFF** for weekend/travel
+28.08 - finished aktualnosci controller, finished index view,
+29.08 - paging, crud for aktualnosci, small styling corrections
+30.08 - uploading demo to Azure, waiting for feedback from client regarding further
+works, changes and corrections
+31.08 - added archiwum component in _layout, troubles with nicEdit in Azure server,
+found new and better wysiwyg plugin
+01.09 - 02.09 - **DAYS OFF** for weekend/travel
+03.09 - start working on identity roles
+04.09 - cont. work on identity roles, troubles with migration of local identity DB
+05.09 - 12.09 - **DAYS OFF** for travel around the Europe
+13.09 - completed work on ASP.NET Identity roles, added Admin and Moderator roles,
+corrected paging error, added mark class on current paging page
+14.09 - 16.09 - **DAYS OFF** for weekend/travel
+17.09 - links in "warto zobaczyæ" dropdown, subpages (controllers, models, views for
+historia szko³y, dokumenty, rada rodziców),
+18.09 - 21.09 - preparing rest of the subpages with views and controlles,
+only calendar events, contact and picture gallery pages remaining
+22.09 - 24.09 - **DAYS OFF** for weekend/travel
+25.09 - start working on calendar events subpage, instaling calendar plugin,
+26.09 - connecting plugin with database using ajax and asp.net core component,
+27.09 - installed date+time picker for calendar events edit view, styling it and
+styling calendar plugin
+28.09 - installed weather widget, started to make styling
+29.09 - connected weather widget with Yahoo! weather, finished styling
+30.09 - corrected styling of widgets
+01.10 - corrcted responsivity of all website subpages
+02.10 - adding repositories to all controllers, adding validations to some models
+and controllers, fixed navbar`s hover bug
+13.11 - changing logo to the one provided by the client, start working on uploading 
+main image for `Aktualnosci` entities to EF database
+14.11 - added checkbox for default image, completed task to allow uploading 
+`Aktualnosci` main image, if not uploaded, replaced by default one, 
+start working on uploading multiple files to the specific location for various 
+database entites
+15.11 - possible to add new multiple files for the test entry, possible to display them 
+in the index view, added downloading of the files to the client from the test entry
+16.11 - start working on deleting uploaded files by moderator
+17.11 - completed works on deleting files by moderator, corrected layout view 
+between plugins, adding pic galery link to `Aktualnosci`
+18.11 - **DAY OFF** for weekend
+19.11 - corrected weather widget sunglasses bug, corrected navbar onload bug
+20.11 - secured forms against CSRF, secured login against brute-force (delayed),
+added auto logoff, added display settings model for admins with conditional 
+display of stylesheet and logo
+21.11 - replacing IQueryable with Ienumerable in repositories, repository for
+Display Settings, corrected navBtn colors for dark view, cookies policy plugin,
+corrected wysiwyg styling bug, removed not existing path bug, removed footer`s bug,
+wysiwyg plugin`s translations, 
+27.11 - added button to pic gallery in OneDrive
+03.12 - updated logo, contact details editable by admin, added directions
+04.12 - removed bug with file removal without passing object, added generic warning
+message to be added by admin, 
