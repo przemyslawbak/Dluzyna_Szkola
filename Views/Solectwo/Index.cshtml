@@ -1,0 +1,27 @@
+﻿@model Solectwo
+
+@{
+    ViewBag.Title = "Sport";
+}
+
+<div class="kontenerStrony col-xs-12 col-md-9">
+    <div class="tytulStrony col-md-12">Sołectwo</div>
+
+    <div class="spaceSide"></div>
+    @if (User?.Identity?.IsAuthenticated ?? false)
+    {
+        <a asp-action="Edit" class="btn btn-sm btn-warning adminBtn">Edycja</a>
+    }
+    <div class="kontenerDuzyWpis">
+
+        <div class="tytulDetails col-xs-12">
+            <div>Ogłoszenia</div>
+        </div>
+
+        <div class="trescDetails"><div class="shift"> @Html.Raw(Model.Tresc)</div></div>
+
+
+    </div>
+    <div class="space"></div>
+</div>
+

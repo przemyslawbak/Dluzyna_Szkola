@@ -1,0 +1,36 @@
+﻿@model Biblioteka
+
+@{
+    ViewBag.Title = "Biblioteka";
+}
+
+<div class="kontenerStrony col-xs-12 col-md-9">
+    <div class="tytulStrony col-md-12">Dla ucznia</div>
+
+    <div class="spaceSide"></div>
+    @if (User?.Identity?.IsAuthenticated ?? false)
+    {
+        <a asp-action="Edit" class="btn btn-sm btn-warning adminBtn">Edycja</a>
+    }
+        <div class="kontenerDuzyWpis">
+            <div class="tytulDetails col-xs-12">
+                <div>Biblioteka</div>
+            </div>
+            <div class="trescDetails"><div class="shift"> @Html.Raw(Model.Tresc)</div></div>
+            <br />
+            <!--FILE DOWNLOAD-->
+            @if (Enumerable.Count(ViewBag.fileList) != 0)
+            {
+                <dir>Pliki do pobrania:</dir>
+                {
+                    foreach (var file in ViewBag.fileList)
+                    {
+                        <a class="down" href="Biblioteka/Download?file=@(ViewBag.fileDirectory + file)" target="_blank"><dir>@file<span>;</span></dir></a>
+
+                    }
+                }
+            }
+        </div>
+    <div class="space"></div>
+</div>
+

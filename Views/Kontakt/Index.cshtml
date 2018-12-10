@@ -1,0 +1,41 @@
+﻿@model Kontakt
+
+@{
+    ViewBag.Title = "Kontakt";
+}
+
+<div class="kontenerStrony col-xs-12 col-md-9">
+    <div class="tytulStrony col-md-12">O szkole</div>
+
+    <div class="spaceSide"></div>
+    @if (User?.Identity?.IsAuthenticated ?? false)
+    {
+        <a asp-action="Edit" class="btn btn-sm btn-warning adminBtn">Edycja</a>
+    }
+    <div class="kontenerDuzyWpis">
+
+        <div class="tytulDetails col-xs-12">
+            <div>Kontakt</div>
+        </div>
+        <div style="text-align:center; padding-top: 70px; font-size: 20px;">
+            <br />
+            <div>
+                Adres: <br />
+                @Model.AdresUlica <br />
+                @Model.AdresMiastoKod <br />
+                @Model.AdresWojewodztwo <br />
+            </div>
+            <br />
+            <div>E-mail: <br />@Model.Email</div>
+            <br />
+            <div>Telefon:  <br />@Model.Phone</div>
+            <br />
+            <div>Faks: <br />@Model.Fax</div>
+            <br />
+            <div>Dojazd:
+            <br />
+            <a target="_blank" href="@Model.LinkGoogleMaps" class="directionsContainer"></a>
+        </div>
+    </div>
+    <div class="space"></div>
+</div>

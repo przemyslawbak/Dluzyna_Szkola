@@ -1,0 +1,17 @@
+﻿@model ApplicationDisplay
+<!--conditional style, OK for HTML5 to keep it in body-->
+<!--reference: http://w3c.github.io/html/document-metadata.html#allowed-in-the-body-->
+@if (Model.DisplayDark == true)
+{
+    <link rel="stylesheet" type="text/css" href="~/css/styleDark.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/calendar/jquery.e-calendarDark.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/cookieBubble/cookieBubbleDark.css">
+}
+@if (Model.DisplayDark == false)
+{
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/calendar/jquery.e-calendar.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/cookieBubble/cookieBubble.css">
+}
+
+

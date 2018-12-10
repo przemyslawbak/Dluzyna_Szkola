@@ -1,0 +1,64 @@
+﻿@model AktualnosciViewModel
+@{
+    ViewBag.Title = "Zespół Szkół w Dłużynie";
+}
+<div class="kontenerStrony col-xs-12 col-md-9">
+    <div class="tytulStrony col-md-12">Aktualności</div>
+
+    @if (User?.Identity?.IsAuthenticated ?? false)
+    {
+        <a asp-action="Create" class="btn btn-success adminBtn">Nowy wpis</a>
+    }
+    <br/>
+    @foreach (var item in Model.ListOfAktualnosci)
+    {
+        <br />
+        @if (User?.Identity?.IsAuthenticated ?? false)
+        {
+        <form asp-action="Delete" method="post" class="adminBtn" asp-antiforgery="true">
+            <a asp-action="Edit" class="btn btn-warning"
+               asp-route-ID="@item.ID">
+                Edycja
+            </a>
+            <input type="hidden" name="ID" value="@item.ID" />
+            <button type="submit" class="btn btn-danger">
+                Usuń
+            </button>
+        </form>
+        }
+            <div class="kontenerWpisu">
+                @if (item.AktualnosciImage != null)
+                {
+                    <div class="zdjecieWpisu hidden-xs col-sm-4" style="background-image: url(data:image;base64,@System.Convert.ToBase64String(item.AktualnosciImage))"></div>
+                }
+                @if (item.AktualnosciImage == null)
+                {
+                    <div class="zdjecieWpisu hidden-xs col-sm-4" style="background-image: url(/img/Aktualnosci/default.jpg)"></div>
+                }
+
+                <div class="tytulWpisu col-xs-12 col-sm-8"><div class="shift">@item.Tytul</div></div>
+
+                <div class="trescWpisu col-xs-12 col-sm-8"><div class="shift"><p>@Html.Raw(item.Tresc)</p></div></div>
+
+                @if (item.Galeria != "#")
+                {
+                    <div class="dataWpisu col-xs-6 col-sm-4"><div class="shift">Dodano: @item.Dzien.ToShortDateString()</div></div>
+                    <a href="@item.Galeria" target="_blank" class="dalejButton dalejWpisu col-xs-3 col-sm-2">Zdjęcia ></a>
+                }
+                @if (item.Galeria == "#")
+                {
+                    <div class="dataWpisu col-xs-9 col-sm-6"><div class="shift">Dodano: @item.Dzien.ToShortDateString()</div></div>
+                }
+                <a asp-action="Details" asp-route-ID="@item.ID" class="dalejButton dalejWpisu col-xs-3 col-sm-2">Czytaj dalej ></a>
+
+            </div>
+    }
+    <br />
+    Strona:<span class="hyperPaging" page-model="@Model.PagingInfo" page-action="Index">test</span>
+
+    <div class="space"></div>
+</div>
+
+
+
+

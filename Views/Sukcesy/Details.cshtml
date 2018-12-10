@@ -1,0 +1,25 @@
+﻿@model Sukcesy
+
+@{
+    ViewBag.Title = Model.Tytul;
+}
+
+<div class="kontenerStrony col-xs-12 col-md-9">
+
+    <div class="kontenerDetails">
+
+        <div class="tytulDetails col-xs-12"><div>@Model.Tytul</div></div>
+
+        <div class="trescDetails"><div class="shift"> @Html.Raw(Model.Tresc)</div></div>
+
+        <div class="dataDetails col-xs-9 col-sm-10"> </div>
+
+        <a asp-action="Index" class="dalejButton dalejWpisu col-xs-3 col-sm-2">Powrót ></a>
+
+    </div>
+    <div class="space"></div>
+</div>
+
+
+
+

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Aktualnosci>
+
+<div class="dodatekKontener">
+    <div class="archiwumHeader">
+        Ostatnie aktualności:
+    </div>
+    @{ int i = 0;
+        foreach (var item in Model)
+        {
+            @if (i < 10)
+            {
+                <br />
+                <a asp-action="Details" asp-controller="Aktualnosci" asp-route-ID="@item.ID" class="archiwumLink">@item.Tytul</a>
+            }
+
+            i++;
+        }
+    }
+</div>
+
+

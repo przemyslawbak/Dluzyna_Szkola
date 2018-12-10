@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Wydarzenia>
+@{
+    ViewBag.Title = "Kalendarz i zebrania";
+}
+<div class="kontenerStrony col-xs-12 col-md-9">
+    <div class="tytulStrony col-md-12">Dla rodzica</div>
+
+    @if (User?.Identity?.IsAuthenticated ?? false)
+    {
+        <a asp-action="Create" class="btn btn-success adminBtn">Nowe wydarzenie lub zebranie</a>
+    }
+
+    <div class="spaceSide"></div>
+    <div class="tytulGrono col-xs-12" style="box-shadow: 0 5px 20px #000000;">
+        <div class="tytulDetails">
+            <div>Kalendarz i zebrania</div>
+        </div>
+    </div>
+    <div class="msgKomputer"><h4>Wszystkie poniższe wydarzenia będą zaznaczone w kalendarzu po prawej stronie</h4></div>
+    @foreach (var item in Model)
+    {
+        <br />
+        @if (User?.Identity?.IsAuthenticated ?? false)
+        {
+            <form asp-action="Delete" method="post" class="adminBtn" asp-antiforgery="true">
+                <a asp-action="Edit" class="btn btn-warning"
+                   asp-route-ID="@item.ID">
+                    Edycja
+                </a>
+                <input type="hidden" name="ID" value="@item.ID" />
+                <button type="submit" class="btn btn-danger">
+                    Usuń
+                </button>
+            </form>
+        }
+        <div class="kontenerOsoby col-xs-12">
+            <div class="row">
+
+                <div class="nazwiskoOsoby col-xs-12 col-sm-4">
+                    <div class="shift">@item.Title</div>
+                    <br />
+
+
+                </div>
+
+                <div class="funkcjeOsoby"><div>@item.Description dnia @item.WhenHappens.ToShortDateString() @if (item.WhenHappens.Hour > 0) {<span>o godzinie @item.WhenHappens.ToShortTimeString()</span>}</div></div>
+            </div>
+        </div>
+    }
+    <div style="visibility: hidden">test</div>
+    <div class="space"></div>
+</div>
+
+
+
+

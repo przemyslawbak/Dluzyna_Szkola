@@ -1,0 +1,29 @@
+﻿@model Sukcesy
+@{
+    ViewBag.Title = "Edycja Sukcesy";
+}
+@Html.AntiForgeryToken()
+<br />
+<div class="col-md-6 kontenerStrony">
+    <div class="tytulStrony col-md-12">Edycja</div>
+    <div class="space"></div>
+    <form asp-action="Edit" method="post" asp-antiforgery="true">
+        <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="Tytul">Tytuł wpisu</label>
+            <div><span asp-validation-for="Tytul" class="text-danger"></span></div>
+            <input asp-for="Tytul" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Tresc" class="control-label">Treść wpisu</label>
+            <div><span asp-validation-for="Tresc" class="text-danger"></span></div>
+            <textarea asp-for="Tresc" class="form-control wysiwyg"></textarea>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success" type="submit">Zapisz</button>
+            <a href="javascript:history.go(-1)" class="btn btn-primary">Powrót</a>
+        </div>
+
+        <div class="space"></div>
+    </form>
+</div>

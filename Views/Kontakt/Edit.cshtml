@@ -1,0 +1,43 @@
+﻿@model Kontakt
+@{
+    ViewBag.Title = "Edycja kontakt";
+}
+@Html.AntiForgeryToken()
+<br />
+<div class="col-md-6 kontenerStrony">
+    <div class="tytulStrony col-md-12">Edycja</div>
+    <div class="space"></div>
+    <br />
+    <form asp-action="Edit" method="post" enctype="multipart/form-data" asp-antiforgery="true">
+        <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="AdresUlica">Wpisz ulicę i numer</label>
+            <div><span asp-validation-for="AdresUlica" class="text-danger"></span></div>
+            <input asp-for="AdresUlica" class="form-control">
+            <label asp-for="AdresMiastoKod">Wpisz kod i miejscowość</label>
+            <div><span asp-validation-for="AdresMiastoKod" class="text-danger"></span></div>
+            <input asp-for="AdresMiastoKod" class="form-control">
+            <label asp-for="AdresWojewodztwo">Wpisz województwo</label>
+            <div><span asp-validation-for="AdresWojewodztwo" class="text-danger"></span></div>
+            <input asp-for="AdresWojewodztwo" class="form-control">
+            <label asp-for="Email">Wpisz Email</label>
+            <div><span asp-validation-for="Email" class="text-danger"></span></div>
+            <input asp-for="Email" class="form-control">
+            <label asp-for="Phone">Wpisz numer telefonu</label>
+            <div><span asp-validation-for="Phone" class="text-danger"></span></div>
+            <input asp-for="Phone" class="form-control">
+            <label asp-for="Fax">Wpisz numer Fax</label>
+            <div><span asp-validation-for="Fax" class="text-danger"></span></div>
+            <input asp-for="Fax" class="form-control">
+            <label asp-for="LinkGoogleMaps">Wklej link z Google Maps lub innej aplikacji do nawigacji</label>
+            <div><span asp-validation-for="LinkGoogleMaps" class="text-danger"></span></div>
+            <input asp-for="LinkGoogleMaps" class="form-control">
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success" type="submit">Zapisz</button>
+            <a asp-action="Index" class="btn btn-primary">Powrót</a>
+        </div>
+
+        <div class="space"></div>
+    </form>
+</div>

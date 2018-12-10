@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AppUser>
+<div class="col-md-6 kontenerStrony">
+    <div class="bg-primary m-1 p-1 text-white"><h4>Konta użytkowników</h4></div>
+    <table class="table table-sm table-bordered tabela">
+        <tr><th>Nazwa użytkownika</th><th>Adres e-mail</th></tr>
+        @if (Model.Count() == 0)
+        {
+            <tr><td colspan="3" class="text-center">Brak kont użytkowników.</td></tr>
+        }
+        else
+        {
+            foreach (AppUser user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@user.Id" method="post" asp-antiforgery="true">
+                            <a class="btn btn-sm btn-primary" asp-action="Edit"
+                               asp-route-id="@user.Id">Edytuj</a>
+                            <button type="submit"
+                                    class="btn btn-sm btn-danger">
+                                Usuń
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <a class="btn btn-primary" asp-action="Create">Dodaj użytkownika</a>
+    <div class="space"></div>
+</div>

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Wydarzenia>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#calendarr').eCalendar({
+                weekDays: ['Nie', 'Pon', 'Wto', 'Śro', 'Czw', 'Pią', 'Sob'],
+                months: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Pańdziernik', 'Listopad', 'Grudzień'],
+                textArrows: { previous: '<', next: '>' },
+                eventTitle: 'W tym miesiącu',
+                url: '',
+                firstDayOfWeek: 0,
+                events: [
+                @foreach (var item in Model)
+                {
+                    <text>
+                    { title: '@item.Title', description: '@item.Description', datetime: new Date('@item.WhenHappens.Year', @item.WhenHappens.Month-1, '@item.WhenHappens.Day', '@item.WhenHappens.Hour', '@item.WhenHappens.Minute')},
+                    </text>
+                }
+                ]
+            });
+
+});
+</script>
+

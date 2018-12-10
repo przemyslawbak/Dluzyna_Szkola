@@ -1,0 +1,41 @@
+﻿@model Aktualnosci
+
+@{
+    ViewBag.Title = Model.Tytul;
+}
+
+<div class="kontenerStrony col-xs-12 col-md-9">
+
+    <div class="kontenerDetails">
+
+        <div class="tytulDetails col-xs-12"><div>@Model.Tytul</div></div>
+
+        @if (Model.AktualnosciImage != null)
+        {
+            <div class="zdjecieDetails hidden-xs col-sm-6" style="background-image: url(data:image;base64,@System.Convert.ToBase64String(Model.AktualnosciImage))"></div>
+        }
+        @if (Model.AktualnosciImage == null)
+        {
+            <div class="zdjecieDetails hidden-xs col-sm-6" style="background-image: url(/img/Aktualnosci/default.jpg)"></div>
+        }
+
+        <div class="trescDetails"><div class="shift"> @Html.Raw(Model.Tresc)</div></div>
+
+        @if (Model.Galeria != "#")
+        {
+            <div class="dataDetails col-xs-6 col-sm-8"><div class="shift">Dodano: @Model.Dzien.ToShortDateString()</div></div>
+            <a href="@Model.Galeria" target="_blank" class="dalejButton dalejWpisu col-xs-3 col-sm-2">Zdjęcia ></a>
+        }
+        @if (Model.Galeria == "#")
+        {
+            <div class="dataDetails col-xs-9 col-sm-10"><div class="shift">Dodano: @Model.Dzien.ToShortDateString()</div></div>
+        }
+        <a asp-action="Index" class="dalejButton dalejWpisu col-xs-3 col-sm-2">Powrót ></a>
+
+    </div>
+    <div class="space"></div>
+</div>
+
+
+
+

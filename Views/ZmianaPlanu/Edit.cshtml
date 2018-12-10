@@ -1,0 +1,48 @@
+﻿@model ZmianaPlanu
+@{
+    ViewBag.Title = "Edycja zmiany planu";
+}
+@Html.AntiForgeryToken()
+<br />
+<div class="col-md-6 kontenerStrony">
+    <div class="tytulStrony col-md-12">Edycja</div>
+    <div class="space"></div>
+    @if (Enumerable.Count(ViewBag.fileList) > 0)
+    {
+        <dir>Wgrane już pliki:</dir>
+        {
+            foreach (var someFile in ViewBag.fileList)
+            {
+                <form asp-action="DeleteFile" method="post" class="adminBtn" asp-antiforgery="true">
+                    <input type="hidden" name="file" value="@someFile" asp-action="@(ViewBag.fileDirectory + someFile)" />
+                    <button class="btn btn-danger" type="submit">Usuń</button>
+                    @someFile
+                </form>
+                <br />
+            }
+        }
+    }
+    <br />
+    <form asp-action="Edit" method="post" enctype="multipart/form-data" asp-antiforgery="true">
+        <input type="hidden" asp-for="ID" />
+        <label>Dodaj pliki do pobrania</label>
+        <input type="file" name="files" multiple />
+        <br />
+        <div class="form-group">
+            <label asp-for="Info">Treść komunikatu:</label>
+            <div><span asp-validation-for="Info" class="text-danger"></span></div>
+            <input asp-for="Info" class="form-control">
+            <div class="form-group">
+                <label asp-for="DzienZakonczenia" class="control-label">Data wygaśnięcia komunikatu: <br /> (Po tym dniu informacja nie będzie wyświetlana)</label>
+                <div><span asp-validation-for="DzienZakonczenia" class="text-danger"></span></div>
+                <input type="date" asp-for="DzienZakonczenia" class="form-control" />
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success" type="submit">Zapisz</button>
+            <a asp-action="Index" class="btn btn-primary">Powrót</a>
+        </div>
+
+        <div class="space"></div>
+    </form>
+</div>

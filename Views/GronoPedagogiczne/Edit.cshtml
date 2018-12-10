@@ -1,0 +1,39 @@
+﻿@model GronoPedagogiczne
+@{
+    ViewBag.Title = "Edycja Grono Pedagogiczne";
+}
+@Html.AntiForgeryToken()
+<br />
+<div class="col-md-6 kontenerStrony col-xs-12">
+    <div class="tytulStrony col-md-12">Edycja</div>
+    <div class="space"></div>
+    <form asp-action="Edit" method="post" asp-antiforgery="true">
+        <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="Zdjecie">Link do zdjęcia</label>
+            <div><span asp-validation-for="Zdjecie" class="text-danger"></span></div>
+            <input asp-for="Zdjecie" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Imie">Imię osoby</label>
+            <div><span asp-validation-for="Imie" class="text-danger"></span></div>
+            <input asp-for="Imie" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Nazwisko">Nazwisko osoby</label>
+            <div><span asp-validation-for="Nazwisko" class="text-danger"></span></div>
+            <input asp-for="Nazwisko" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Funkcje" class="control-label">Funkcje w szkole</label>
+            <div><span asp-validation-for="Funkcje" class="text-danger"></span></div>
+            <input asp-for="Funkcje" class="form-control" />
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success" type="submit">Zapisz</button>
+            <a href="javascript:history.go(-1)" class="btn btn-primary">Powrót</a>
+        </div>
+
+        <div class="space"></div>
+    </form>
+</div>

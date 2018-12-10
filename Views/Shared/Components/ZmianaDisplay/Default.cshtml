@@ -1,0 +1,31 @@
+﻿@model ZmianaPlanu
+
+@if (Model.DzienZakonczenia > DateTime.Now)
+{
+<div class="dodatekKontener">
+    <div class="archiwumHeader">
+        Komunikat
+    </div>
+    <div style="text-align: center;">
+        <br />
+        <div style="color: red; font-size: 20px;">UWAGA!</div>
+        <br />
+        <div>@Model.Info</div>
+        <br />
+    </div>
+    <!--FILE DOWNLOAD-->
+    <div>
+        @if (Enumerable.Count(ViewBag.fileList) != 0)
+        {
+            <dir>Pliki do pobrania:</dir>
+            {
+                foreach (var file in ViewBag.fileList)
+                {
+                    <a class="down" href="Biblioteka/Download?file=@(ViewBag.fileDirectory + file)" target="_blank"><dir>@file<span>;</span></dir></a>
+                }
+            }
+        }
+    </div>
+</div>
+    <div style="margin-bottom: 20px;"></div>
+}

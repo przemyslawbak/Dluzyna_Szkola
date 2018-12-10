@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GronoPedagogiczne>
+@{
+    ViewBag.Title = "Grono Pedagogiczne";
+}
+<div class="kontenerStrony col-xs-12 col-md-9">
+    <div class="tytulStrony col-md-12">O szkole</div>
+
+    @if (User?.Identity?.IsAuthenticated ?? false)
+    {
+        <a asp-action="Create" class="btn btn-success adminBtn">Nowa osoba</a>
+    }
+    <div class="spaceSide"></div>
+    <div class="tytulGrono col-xs-12" style="box-shadow: 0 5px 20px #000000;">
+        <div class="tytulDetails">
+            <div>Grono Pedagogiczne</div>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <br />
+        @if (User?.Identity?.IsAuthenticated ?? false)
+        {
+        <form asp-action="Delete" method="post" class="adminBtn" asp-antiforgery="true">
+            <a asp-action="Edit" class="btn btn-warning"
+               asp-route-ID="@item.ID">
+                Edycja
+            </a>
+            <input type="hidden" name="ID" value="@item.ID" />
+            <button type="submit" class="btn btn-danger">
+                Usuń
+            </button>
+        </form>
+        }
+        <div class="kontenerOsoby col-xs-12">
+            <div class="row">
+
+                <div class="nazwiskoOsoby col-xs-12 col-sm-4"><div class="shift">@item.Nazwisko, @item.Imie</div></div>
+
+                <div class="funkcjeOsoby">@item.Funkcje</div>
+            </div>
+        </div>
+    }
+    <div style="visibility: hidden">test</div>
+    <div class="space"></div>
+</div>
+
+
+
+
