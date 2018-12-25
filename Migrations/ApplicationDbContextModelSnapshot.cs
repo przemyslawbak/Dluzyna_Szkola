@@ -50,6 +50,20 @@ namespace DluzynaSzkola2.Migrations
 
                     b.Property<bool>("DisplayDark");
 
+                    b.Property<string>("GlownyNaglowekTlo");
+
+                    b.Property<string>("NaglowkiTlo");
+
+                    b.Property<string>("PrzyciskiKolor");
+
+                    b.Property<string>("StrefaAdminaKolor");
+
+                    b.Property<string>("StronaTlo");
+
+                    b.Property<string>("TrescKolor");
+
+                    b.Property<string>("TrescTlo");
+
                     b.HasKey("ID");
 
                     b.ToTable("ApplicationDisplays");

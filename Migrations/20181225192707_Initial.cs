@@ -32,7 +32,14 @@ namespace DluzynaSzkola2.Migrations
                 {
                     ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DisplayDark = table.Column<bool>(nullable: false)
+                    DisplayDark = table.Column<bool>(nullable: false),
+                    GlownyNaglowekTlo = table.Column<string>(nullable: true),
+                    StronaTlo = table.Column<string>(nullable: true),
+                    PrzyciskiKolor = table.Column<string>(nullable: true),
+                    TrescTlo = table.Column<string>(nullable: true),
+                    NaglowkiTlo = table.Column<string>(nullable: true),
+                    TrescKolor = table.Column<string>(nullable: true),
+                    StrefaAdminaKolor = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -118,6 +125,25 @@ namespace DluzynaSzkola2.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Konkursys", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Kontakts",
+                columns: table => new
+                {
+                    ID = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AdresUlica = table.Column<string>(nullable: true),
+                    AdresMiastoKod = table.Column<string>(nullable: true),
+                    AdresWojewodztwo = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: true),
+                    Fax = table.Column<string>(nullable: true),
+                    LinkGoogleMaps = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kontakts", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -265,6 +291,21 @@ namespace DluzynaSzkola2.Migrations
                 {
                     table.PrimaryKey("PK_ZajeciaDodatkowes", x => x.ID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "ZmianaPlanus",
+                columns: table => new
+                {
+                    ID = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Info = table.Column<string>(nullable: true),
+                    DzienRozpoczęcia = table.Column<DateTime>(nullable: false),
+                    DzienZakonczenia = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ZmianaPlanus", x => x.ID);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -292,6 +333,9 @@ namespace DluzynaSzkola2.Migrations
 
             migrationBuilder.DropTable(
                 name: "Konkursys");
+
+            migrationBuilder.DropTable(
+                name: "Kontakts");
 
             migrationBuilder.DropTable(
                 name: "Plans");
@@ -325,6 +369,9 @@ namespace DluzynaSzkola2.Migrations
 
             migrationBuilder.DropTable(
                 name: "ZajeciaDodatkowes");
+
+            migrationBuilder.DropTable(
+                name: "ZmianaPlanus");
         }
     }
 }

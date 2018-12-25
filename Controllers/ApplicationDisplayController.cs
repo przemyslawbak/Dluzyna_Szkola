@@ -25,6 +25,12 @@ namespace DluzynaSzkola2.Controllers
             {
                 var newDisplay = new ApplicationDisplay
                 {
+                    NaglowkiTlo = "brown",
+                    PrzyciskiKolor = "orange",
+                    StrefaAdminaKolor = "green",
+                    StronaTlo = "white",
+                    TrescKolor = "black",
+                    TrescTlo = "white",
                     DisplayDark = false
                 };
                 repository.SaveApplicationDisplay(newDisplay);
@@ -37,6 +43,13 @@ namespace DluzynaSzkola2.Controllers
         public ActionResult Edit(ApplicationDisplay modelReturned)
         {
             ApplicationDisplay dataBase = repository.ApplicationDisplays.FirstOrDefault();
+            dataBase.GlownyNaglowekTlo = modelReturned.GlownyNaglowekTlo;
+            dataBase.NaglowkiTlo = modelReturned.NaglowkiTlo;
+            dataBase.PrzyciskiKolor = modelReturned.PrzyciskiKolor;
+            dataBase.StrefaAdminaKolor = modelReturned.StrefaAdminaKolor;
+            dataBase.StronaTlo = modelReturned.StronaTlo;
+            dataBase.TrescKolor = modelReturned.TrescKolor;
+            dataBase.TrescTlo = modelReturned.TrescTlo;
             dataBase.DisplayDark = modelReturned.DisplayDark;
             repository.SaveApplicationDisplay(dataBase);
             return RedirectToAction(nameof(Edit));

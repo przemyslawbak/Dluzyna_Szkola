@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DluzynaSzkola2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181120182750_Initial")]
+    [Migration("20181225192707_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,20 @@ namespace DluzynaSzkola2.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("DisplayDark");
+
+                    b.Property<string>("GlownyNaglowekTlo");
+
+                    b.Property<string>("NaglowkiTlo");
+
+                    b.Property<string>("PrzyciskiKolor");
+
+                    b.Property<string>("StrefaAdminaKolor");
+
+                    b.Property<string>("StronaTlo");
+
+                    b.Property<string>("TrescKolor");
+
+                    b.Property<string>("TrescTlo");
 
                     b.HasKey("ID");
 
@@ -142,6 +156,31 @@ namespace DluzynaSzkola2.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Konkursys");
+                });
+
+            modelBuilder.Entity("DluzynaSzkola2.Models.Kontakt", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AdresMiastoKod");
+
+                    b.Property<string>("AdresUlica");
+
+                    b.Property<string>("AdresWojewodztwo");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Fax");
+
+                    b.Property<string>("LinkGoogleMaps");
+
+                    b.Property<string>("Phone");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Kontakts");
                 });
 
             modelBuilder.Entity("DluzynaSzkola2.Models.Plan", b =>
@@ -298,6 +337,23 @@ namespace DluzynaSzkola2.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("ZajeciaDodatkowes");
+                });
+
+            modelBuilder.Entity("DluzynaSzkola2.Models.ZmianaPlanu", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DzienRozpoczęcia");
+
+                    b.Property<DateTime>("DzienZakonczenia");
+
+                    b.Property<string>("Info");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ZmianaPlanus");
                 });
 #pragma warning restore 612, 618
         }

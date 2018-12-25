@@ -10,5 +10,12 @@ namespace DluzynaSzkola2.Models
     {
         public long ID { get; set; }
         public bool DisplayDark { get; set; }
+        public string GlownyNaglowekTlo { get; set; }
+        public string StronaTlo { get; set; }
+        public string PrzyciskiKolor { get; set; }
+        public string TrescTlo { get; set; }
+        public string NaglowkiTlo { get; set; }
+        public string TrescKolor { get; set; }
+        public string StrefaAdminaKolor { get; set; }
     }
 }

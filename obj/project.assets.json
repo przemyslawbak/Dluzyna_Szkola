@@ -13085,11 +13085,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asus\\Desktop\\Praca IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP.NET Core - Webio\\Dluzyna_Szkola_2\\BasicConfig\\DluzynaSzkola2.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP.NET Core - Webio\\Dluzyna_Szkola_2\\BasicConfig\\DluzynaSzkola2.csproj",
       "projectName": "DluzynaSzkola2",
-      "projectPath": "C:\\Users\\asus\\Desktop\\Praca IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP.NET Core - Webio\\Dluzyna_Szkola_2\\BasicConfig\\DluzynaSzkola2.csproj",
+      "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP.NET Core - Webio\\Dluzyna_Szkola_2\\BasicConfig\\DluzynaSzkola2.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asus\\Desktop\\Praca IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP.NET Core - Webio\\Dluzyna_Szkola_2\\BasicConfig\\obj\\",
+      "outputPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP.NET Core - Webio\\Dluzyna_Szkola_2\\BasicConfig\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

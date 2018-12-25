@@ -16,18 +16,25 @@ namespace DluzynaSzkola2.Components
         }
         public IViewComponentResult Invoke()
         {
-            var displayDarkView = _context.ApplicationDisplays.FirstOrDefault();
-            if (displayDarkView == null)
+            var displaySettings = _context.ApplicationDisplays.FirstOrDefault();
+            if (displaySettings == null)
             {
                 var newDisplay = new ApplicationDisplay
                 {
+                    NaglowkiTlo = "brown",
+                    PrzyciskiKolor = "orange",
+                    StrefaAdminaKolor = "green",
+                    StronaTlo = "white",
+                    TrescKolor = "black",
+                    TrescTlo = "white",
                     DisplayDark = false
                 };
                 _context.ApplicationDisplays.Add(newDisplay);
                 _context.SaveChanges();
-                displayDarkView = newDisplay;
+                displaySettings = newDisplay;
             }
-            return View(displayDarkView);
+            ViewBag.KolorTla = displaySettings.GlownyNaglowekTlo;
+            return View(displaySettings);
         }
     }
 }

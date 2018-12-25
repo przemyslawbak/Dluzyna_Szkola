@@ -6,6 +6,41 @@
         <input type="hidden" asp-for="ID" />
         <label asp-for="DisplayDark">Kolory żałoby</label>
         <input asp-for="DisplayDark" type="checkbox" />
+        <div class="form-group">
+            <label asp-for="GlownyNaglowekTlo">Tło głównego nagłówka</label>
+            <div><span asp-validation-for="GlownyNaglowekTlo" class="text-danger"></span></div>
+            <input asp-for="GlownyNaglowekTlo" type="text" class="form-control demo" />
+        </div>
+        <div class="form-group">
+            <label asp-for="StronaTlo">Tło strony</label>
+            <div><span asp-validation-for="StronaTlo" class="text-danger"></span></div>
+            <input asp-for="StronaTlo" type="text" class="form-control demo" />
+        </div>
+        <div class="form-group">
+            <label asp-for="NaglowkiTlo">Tła nagłówków</label>
+            <div><span asp-validation-for="NaglowkiTlo" class="text-danger"></span></div>
+            <input asp-for="NaglowkiTlo" type="text" class="form-control demo" />
+        </div>
+        <div class="form-group">
+            <label asp-for="PrzyciskiKolor">Kolor przycisków</label>
+            <div><span asp-validation-for="PrzyciskiKolor" class="text-danger"></span></div>
+            <input asp-for="PrzyciskiKolor" type="text" class="form-control demo" />
+        </div>
+        <div class="form-group">
+            <label asp-for="StrefaAdminaKolor">Kolor napisu "Strefa Admina"</label>
+            <div><span asp-validation-for="StrefaAdminaKolor" class="text-danger"></span></div>
+            <input asp-for="StrefaAdminaKolor" type="text" class="form-control demo" />
+        </div>
+        <div class="form-group">
+            <label asp-for="TrescKolor">Kolor treści</label>
+            <div><span asp-validation-for="TrescKolor" class="text-danger"></span></div>
+            <input asp-for="TrescKolor" type="text" class="form-control demo" />
+        </div>
+        <div class="form-group">
+            <label asp-for="TrescTlo">Tło treści i kolor tekstu nagłówków</label>
+            <div><span asp-validation-for="TrescTlo" class="text-danger"></span></div>
+            <input asp-for="TrescTlo" type="text" class="form-control demo" />
+        </div>
         <div class="text-center">
             <button class="btn btn-success" type="submit">Zapisz i odśwież</button>
         </div>

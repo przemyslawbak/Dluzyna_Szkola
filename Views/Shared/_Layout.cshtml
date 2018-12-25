@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="~/lib/wysiwyg/richtext.min.css">
     <link rel="stylesheet" type="text/css" href="~/lib/datetimepicker/datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="~/lib/weather/weather.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/colorpicker/jquery.minicolors.css">
     <meta charset="utf-8" />
     <title>
         @ViewBag.Title
@@ -31,7 +32,7 @@
     <div class="caloscWidoku">
         <!--NAGŁÓWEK-->
         <div class="row">
-            <div class="header col-xs-12 col-sm-12 col-md-6">
+            <div class="header col-xs-12 col-sm-12 col-md-6" style="background-color: @ViewBag.KolorTla">
                 @await Component.InvokeAsync(nameof(DisplayLogo))
                 <a href="https://dluzyna.mobidziennik.pl/dziennik/" target="_blank" class="p5edziennik col-xs-12">E - dziennik ></a>
             </div>
@@ -109,12 +110,12 @@
                 {
                     <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-warning">Edytuj komunikat</a>
                 }
-                    <div>@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
+                <div>@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
                 <!--kalendarz-->
                 <!--https://www.jqueryscript.net/time-clock/Mini-Event-Calendar-Plugin-jQuery.html-->
-                    <div class="dodatekKontener">
-                        <div id="calendarr"></div>
-                    </div>
+                <div class="dodatekKontener">
+                    <div id="calendarr"></div>
+                </div>
                 <br />
                 <!--weather-->
                 <div class="dodatekKontener" style="margin-top: 10px;">
@@ -156,8 +157,13 @@
     <script src="~/lib/datetimepicker/datetimepicker.js"></script>
     <script src="~/lib/weather/jquery.simpleWeather.js"></script>
     <script src="~/lib/cookieBubble/cookieBubble.js"></script>
+    <script src="~/lib/colorpicker/jquery.minicolors.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/javascript.js"></script>
+    <script>
+        $('.demo').minicolors();
+    </script>
+
     <!--Calendar script below-->
     @await Component.InvokeAsync(nameof(WydarzeniaKalendarz))
     <!--COOKIES INFO-->
