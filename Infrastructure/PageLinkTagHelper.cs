@@ -30,6 +30,7 @@ namespace DluzynaSzkola2.Infrastructure
                 if (i == PageModel.CurrentPage)
                 {
                     tag.Attributes["class"] = "tagThisStyle";
+                    tag.Attributes["custombackground"] = "przyciskikolor";
                 }
                 else
                 {

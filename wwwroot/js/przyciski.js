@@ -35,8 +35,16 @@
         $(this).stop().animate({ 'height': '68px' }, 'slow');
     });
 
+    //tag helpers
+    var attr = "custombackground";
+    var val = "przyciskikolor";
     //change color for dropdown
     $(".dropdown div").hover(function () {
+        if ($(this).attr(attr)) {
+            $(this).removeAttr(attr);
+        } else {
+            $(this).attr(attr, val);
+        }
         $(this).toggleClass("najazdMenu");
     });
 

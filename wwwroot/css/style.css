@@ -2,7 +2,6 @@
 body{
 	overflow-x: hidden;
 	width: 100%;
-	background-color: #6FD29B;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .caloscWidoku {
@@ -23,13 +22,6 @@ body{
     right: 0;
     bottom: 0;
 }
-.trescNaglowka {
-    color: #FFEBCD;
-    font-size: 24px;
-    position: absolute;
-    left: 190px;
-    margin-top: 25px;
-}
 .down:link, .down:active, .down:visited {
     font-weight: bold;
     color: black;
@@ -45,7 +37,6 @@ body{
 	position:absolute;
 	height: 180px;
 	width: 100%;
-	background-color:#6FD29B;
 	box-shadow: 0 15px 30px #000000;
 	top: 79px;
 }
@@ -59,7 +50,6 @@ body{
     font-size: 24px;
     text-align: center;
     float: left;
-    color: #FFEBCD;
 }
 /*hover height in JS*/
 .p1{
@@ -108,15 +98,12 @@ body{
     overflow: hidden;
     font-size: 24px;
     text-align: center;
-    background-color: #FF9B2D;
     float: left;
     height: 70px;
-    color: #FFEBCD;
     line-height: 70px;
     border-style: solid;
     border-width: 1px;
-    border-color: #4C4034;
-    border: 1px solid #ffebcd;
+    border-color: #ffebcd;
 }
 .adminBtn {
     margin-left: 10px;
@@ -132,7 +119,6 @@ body{
     padding: 30px;
 }
 .tagStyle {
-    background-color: #ff9b2d;
     margin-right: 5px;
     color: white !important;
     padding-left: 5px;
@@ -179,7 +165,6 @@ a {                                     /* WŁAŚCIWOŚCI "a"*/
 }
 .najazdMenu{
 	z-index:1;
-	background-color:#FF9B2D;
 }
 .dropdown div {
 	z-index: 1;
@@ -279,7 +264,6 @@ a {                                     /* WŁAŚCIWOŚCI "a"*/
 }
 .dalejWpisu {
     z-index: 1;
-    background-color: #FF9B2D;
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -348,21 +332,10 @@ a {                                     /* WŁAŚCIWOŚCI "a"*/
 	font-weight: bold;
 	background-color:#FFEBCD;
 }
-.dalejDetails{
-	z-index:1;
-	background-color:#FF9B2D;
-	color: #FFEBCD;
-	height: 30px;
-	line-height: 30px;
-	text-align: center;
-	overflow:hidden;
-}
 .pasekLogowania {
     position: center;
-    background-color: #6FD29B;
     width: 100%;
     height: 20px;
-    color: green;
     text-align: right;
     padding-right: 20px;
 }
@@ -434,7 +407,7 @@ a {                                     /* WŁAŚCIWOŚCI "a"*/
     padding: 10px;
 }
 .archiwumLink:hover {
-    color: #ff9b2d;
+    font-weight: bold;
     overflow: hidden;
 }
                             /*BUTTONS*/
@@ -519,7 +492,6 @@ actionLink:link, actionLink:visited, actionLink:active {
                             /*SUKCESY*/
 .dalejSukcesy {
     z-index: 1;
-    background-color: #FF9B2D;
     height: 70px;
     line-height: 70px;
     text-align: center;
@@ -543,11 +515,8 @@ actionLink:link, actionLink:visited, actionLink:active {
 #calendar {
     box-shadow: 0 5px 20px #000000;
     width: 95%;
-}                                        /*DODATKI*/
-.dodatkiButton {
-    background-color: #ff9b2d;
-    color: #ffebcd;
-}                                        /* @MEDIA*/
+}
+                                        /* @MEDIA*/
 @media screen and (min-width:992px) {
     .tytulGrono {
         margin-top: 30px;
@@ -556,14 +525,6 @@ actionLink:link, actionLink:visited, actionLink:active {
 @media screen and (max-width:992px) {
     .p5edziennik {
         margin-top: 234px;
-    }
-
-    .trescNaglowka {
-        text-align: center;
-        left: auto;
-        position: static;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .pasekCieniaHeader {

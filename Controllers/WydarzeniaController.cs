@@ -87,14 +87,5 @@ namespace DluzynaSzkola2.Controllers
             repository.DeleteWydarzenia(id);
             return RedirectToAction(nameof(Index));
         }
-        [Route("Events")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
-        public ActionResult Events()
-        {
-            var _events = repository.Wydarzenias.OrderBy(c => c.WhenHappens).ToList();
-            return Json(_events);
-        }
     }
 }

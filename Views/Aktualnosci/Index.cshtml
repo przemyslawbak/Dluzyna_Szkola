@@ -43,13 +43,13 @@
                 @if (item.Galeria != "#")
                 {
                     <div class="dataWpisu col-xs-6 col-sm-4"><div class="shift">Dodano: @item.Dzien.ToShortDateString()</div></div>
-                    <a href="@item.Galeria" target="_blank" class="dalejButton dalejWpisu col-xs-3 col-sm-2">Zdjęcia ></a>
+                    <a href="@item.Galeria" target="_blank" class="dalejButton dalejWpisu col-xs-3 col-sm-2" custombackground="przyciskikolor">Zdjęcia ></a>
                 }
                 @if (item.Galeria == "#")
                 {
                     <div class="dataWpisu col-xs-9 col-sm-6"><div class="shift">Dodano: @item.Dzien.ToShortDateString()</div></div>
                 }
-                <a asp-action="Details" asp-route-ID="@item.ID" class="dalejButton dalejWpisu col-xs-3 col-sm-2">Czytaj dalej ></a>
+                <a asp-action="Details" asp-route-ID="@item.ID" class="dalejButton dalejWpisu col-xs-3 col-sm-2" custombackground="przyciskikolor">Czytaj dalej ></a>
 
             </div>
     }

@@ -14,32 +14,32 @@
         @ViewBag.Title
     </title>
 </head>
-<body>
+<body custombackground="stronatlo">
     <!--stylesheet conditional display-->
     @await Component.InvokeAsync(nameof(DisplayOptions))
     <!--ADMIN LOGIN-->
-    <div class="pasekLogowania">
+    <div class="pasekLogowania" custombackground="stronatlo">
         @if (User?.Identity?.IsAuthenticated ?? false)
         {
-            <a asp-controller="Account" asp-action="Logout" class="pasekLogowania"><strong>@Html.Encode(User.Identity.Name)</strong> Wyloguj</a>
+            <a asp-controller="Account" asp-action="Logout" class="pasekLogowania" custombackground="stronatlo" customtextcolor="strefaadminakolor"><strong>@Html.Encode(User.Identity.Name)</strong> Wyloguj</a>
         }
         else
         {
-            <a asp-action="Login" asp-controller="Account" class="pasekLogowania">Strefa Admina</a>
+            <a asp-action="Login" asp-controller="Account" class="pasekLogowania" custombackground="stronatlo" customtextcolor="strefaadminakolor">Strefa Admina</a>
         }
     </div>
-    <div class="pasekCieniaHeader"></div>
+    <div class="pasekCieniaHeader" stronaTlo></div>
     <div class="caloscWidoku">
         <!--NAGŁÓWEK-->
         <div class="row">
-            <div class="header col-xs-12 col-sm-12 col-md-6" style="background-color: @ViewBag.KolorTla">
+            <div class="header col-xs-12 col-sm-12 col-md-6" custombackground="glownynaglowektlo">
                 @await Component.InvokeAsync(nameof(DisplayLogo))
-                <a href="https://dluzyna.mobidziennik.pl/dziennik/" target="_blank" class="p5edziennik col-xs-12">E - dziennik ></a>
+                <a href="https://dluzyna.mobidziennik.pl/dziennik/" target="_blank" class="p5edziennik col-xs-12" custombackground="przyciskikolor" customtextcolor="tekstnaglowkow">E - dziennik ></a>
             </div>
             <!-- ZMIANA SZEROKOŚCI bootsrtrap col-md-1 do 12.5%; ZMIANA bootstrap padding-->
             <!--MENU-->
             <div class="menuGlowne">
-                <div class="przycisk p1 col-xs-3 col-sm-3 col-md-1">
+                <div class="przycisk p1 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
                     <div style="line-height:70px;" class="dropdown-toggle startBtn" data-toggle="dropdown">Start</div>
                     <div class="dropdown col-xs-12">
                         <div><a style="line-height:60px;" asp-action="Index" asp-controller="Aktualnosci" class="actionLink"><span class="menuFont">Aktualnosci</span></a></div>
@@ -51,7 +51,7 @@
                         <div><a style="line-height:60px;" asp-action="Index" asp-controller="Kontakt" class="actionLink"><span class="menuFont">Kontakt</span></a></div>
                     </div>
                 </div>
-                <div class="przycisk p2 col-xs-3 col-sm-3 col-md-1">
+                <div class="przycisk p2 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
                     <div class="dlauczniaBtn">Dla<br />ucznia</div>
                     <div class="dropdown">
                         <div><a asp-action="Index" asp-controller="Samorzad" class="actionLink"><span class="menuFont">Samorząd<br />uczniowski</span></a></div>
@@ -63,7 +63,7 @@
                         <div><a style="line-height:60px;" asp-action="Index" asp-controller="Sport" class="actionLink"><span class="menuFont">Sport</span></a></div>
                     </div>
                 </div>
-                <div class="przycisk p3 col-xs-3 col-sm-3 col-md-1">
+                <div class="przycisk p3 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
                     <div class="dlarodzicaBtn">Dla<br />rodzica</div>
                     <div class="dropdown">
                         <div><a asp-action="Index" asp-controller="RadaRodzicow" class="actionLink"><span class="menuFont">Rada<br />rodziców</span></a></div>
@@ -73,7 +73,7 @@
                         <div><a style="line-height:60px;" asp-action="Index" asp-controller="Rekrutacja" class="actionLink"><span class="menuFont">Rekrutacja</span></a></div>
                     </div>
                 </div>
-                <div class="przycisk p4 col-xs-3 col-sm-3 col-md-1">
+                <div class="przycisk p4 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
                     <div class="wartozobaczycBtn">Warto<br />zobaczyć</div>
                     <div class="dropdown">
                         <div><a style="line-height:60px;" href="http://wloszakowice.pl/" class="navBtn btn gmina" target="_blank"></a></div>
@@ -133,11 +133,11 @@
                 <br />
                 <!--solectwo-->
                 <div class="dodatekKontener" style="height: 30px;">
-                    <a asp-action="Index" asp-controller="Solectwo" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;">Sołectwo ></a>
+                    <a asp-action="Index" asp-controller="Solectwo" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombackground="przyciskikolor">Sołectwo ></a>
                 </div>
                 <br />
                 <div class="dodatekKontener" style="height: 30px;">
-                    <a href="http://dluzyna.pl/index.php" target="_blank" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;">Stara Strona ></a>
+                    <a href="http://dluzyna.pl/index.php" target="_blank" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombackground="przyciskikolor">Stara Strona ></a>
                 </div>
                 <br />
                 <div class="center myLink">Design & code - <a href="http://przemyslaw-bak.pl/" target="_blank">przemyslaw-bak.pl</a></div>

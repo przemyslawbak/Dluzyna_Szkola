@@ -9,6 +9,7 @@ using DluzynaSzkola2.Controllers;
 
 namespace DluzynaSzkola2.Models
 {
+    //color info for JS plugins
     public class CommonViewBagInitializerActionFilter : ActionFilterAttribute
     {
         private readonly IApplicationDisplay repository;
