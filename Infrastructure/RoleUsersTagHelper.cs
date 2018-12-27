@@ -13,16 +13,14 @@ namespace DluzynaSzkola2.Infrastructure
     {
         private UserManager<AppUser> userManager;
         private RoleManager<IdentityRole> roleManager;
-        public RoleUsersTagHelper(UserManager<AppUser> usermgr,
-        RoleManager<IdentityRole> rolemgr)
+        public RoleUsersTagHelper(UserManager<AppUser> usermgr, RoleManager<IdentityRole> rolemgr)
         {
             userManager = usermgr;
             roleManager = rolemgr;
         }
         [HtmlAttributeName("identity-role")]
         public string Role { get; set; }
-        public override async Task ProcessAsync(TagHelperContext context,
-        TagHelperOutput output)
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             List<string> names = new List<string>();
             IdentityRole role = await roleManager.FindByIdAsync(Role);

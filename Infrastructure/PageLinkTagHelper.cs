@@ -20,8 +20,7 @@ namespace DluzynaSzkola2.Infrastructure
         public ViewContext ViewContext { get; set; }
         public PagingInfoViewModel PageModel { get; set; }
         public string PageAction { get; set; }
-        public override void Process(TagHelperContext context,
-        TagHelperOutput output)
+        public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
             TagBuilder result = new TagBuilder("span");

@@ -67,10 +67,14 @@ namespace DluzynaSzkola2
                 {
                     //delay logoff when processed
                     options.SlidingExpiration = true;
-                    //logoff after 10min
-                    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                    //logoff after 30min
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                 });
-            services.AddMvc();
+            services.AddMvc(config =>
+            {
+                config.Filters.Add<CommonViewBagInitializerActionFilter>();
+            });
+            services.AddScoped<CommonViewBagInitializerActionFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

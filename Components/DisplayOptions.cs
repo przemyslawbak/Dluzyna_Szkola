@@ -33,7 +33,6 @@ namespace DluzynaSzkola2.Components
                 _context.SaveChanges();
                 displaySettings = newDisplay;
             }
-            ViewBag.KolorTla = displaySettings.GlownyNaglowekTlo;
             return View(displaySettings);
         }
     }

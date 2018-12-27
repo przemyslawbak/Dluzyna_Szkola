@@ -29,27 +29,29 @@ styling calendar plugin
 01.10 - corrcted responsivity of all website subpages
 02.10 - adding repositories to all controllers, adding validations to some models
 and controllers, fixed navbar`s hover bug
-13.11 - changing logo to the one provided by the client, start working on uploading 
+13.11 - changing logo to the one provided by the client, start working on uploading
 main image for `Aktualnosci` entities to EF database
-14.11 - added checkbox for default image, completed task to allow uploading 
-`Aktualnosci` main image, if not uploaded, replaced by default one, 
-start working on uploading multiple files to the specific location for various 
+14.11 - added checkbox for default image, completed task to allow uploading
+`Aktualnosci` main image, if not uploaded, replaced by default one,
+start working on uploading multiple files to the specific location for various
 database entites
-15.11 - possible to add new multiple files for the test entry, possible to display them 
+15.11 - possible to add new multiple files for the test entry, possible to display them
 in the index view, added downloading of the files to the client from the test entry
 16.11 - start working on deleting uploaded files by moderator
-17.11 - completed works on deleting files by moderator, corrected layout view 
+17.11 - completed works on deleting files by moderator, corrected layout view
 between plugins, adding pic galery link to `Aktualnosci`
 18.11 - **DAY OFF** for weekend
 19.11 - corrected weather widget sunglasses bug, corrected navbar onload bug
 20.11 - secured forms against CSRF, secured login against brute-force (delayed),
-added auto logoff, added display settings model for admins with conditional 
+added auto logoff, added display settings model for admins with conditional
 display of stylesheet and logo
 21.11 - replacing IQueryable with Ienumerable in repositories, repository for
 Display Settings, corrected navBtn colors for dark view, cookies policy plugin,
 corrected wysiwyg styling bug, removed not existing path bug, removed footer`s bug,
-wysiwyg plugin`s translations, 
+wysiwyg plugin`s translations,
 27.11 - added button to pic gallery in OneDrive
 03.12 - updated logo, contact details editable by admin, added directions
 04.12 - removed bug with file removal without passing object, added generic warning
-message to be added by admin, 
+message to be added by admin,
+25.12 - updated Admins view for color changes and with color picker
+26.12 - added ViewBags in ActionFilter, registered ActionFilter, changing stylesheets
