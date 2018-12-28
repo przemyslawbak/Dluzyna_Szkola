@@ -1,9 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
+    <!--ViewBags stylów-->
+    <script>var glownynaglowektlo = '@ViewBag.GlownyNaglowekTlo'</script>
+    <script>var stronatlo = '@ViewBag.StronaTlo'</script>
+    <script>var przyciskikolor = '@ViewBag.PrzyciskiKolor'</script>
+    <script>var tresctlo = '@ViewBag.TrescTlo'</script>
+    <script>var naglowkikolor = '@ViewBag.NaglowkiTlo'</script>
+    <script>var tresckolor = '@ViewBag.TrescKolor'</script>
+    <script>var strefaadminakolor = '@ViewBag.StrefaAdminaKolor'</script>
+    <!--arkusze stylów-->
     <link rel="icon" href="~/img/layout/favicon.gif">
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="~/css/PagedList.css" />
     <link rel="stylesheet" type="text/css" href="~/lib/fontawesome/css/all.css" />
     <link rel="stylesheet" type="text/css" href="~/lib/wysiwyg/richtext.min.css">
     <link rel="stylesheet" type="text/css" href="~/lib/datetimepicker/datetimepicker.css">
@@ -18,64 +26,66 @@
     <!--stylesheet conditional display-->
     @await Component.InvokeAsync(nameof(DisplayOptions))
     <!--ADMIN LOGIN-->
-    <div class="pasekLogowania" custombackground="stronatlo">
+    <div class="pasekLogowania">
         @if (User?.Identity?.IsAuthenticated ?? false)
         {
-            <a asp-controller="Account" asp-action="Logout" class="pasekLogowania" custombackground="stronatlo" customtextcolor="strefaadminakolor"><strong>@Html.Encode(User.Identity.Name)</strong> Wyloguj</a>
+            <a asp-controller="Account" asp-action="Logout" class="pasekLogowania" customtextcolor="strefaadminakolor"><strong>@Html.Encode(User.Identity.Name)</strong> Wyloguj</a>
         }
         else
         {
-            <a asp-action="Login" asp-controller="Account" class="pasekLogowania" custombackground="stronatlo" customtextcolor="strefaadminakolor">Strefa Admina</a>
+            <a asp-action="Login" asp-controller="Account" class="pasekLogowania" customtextcolor="strefaadminakolor">Strefa Admina</a>
         }
     </div>
-    <div class="pasekCieniaHeader" stronaTlo></div>
+    <div class="pasekCieniaHeader"></div>
     <div class="caloscWidoku">
-        <!--NAGŁÓWEK-->
+
+        <!--NAGŁÓEK-->
         <div class="row">
             <div class="header col-xs-12 col-sm-12 col-md-6" custombackground="glownynaglowektlo">
                 @await Component.InvokeAsync(nameof(DisplayLogo))
-                <a href="https://dluzyna.mobidziennik.pl/dziennik/" target="_blank" class="p5edziennik col-xs-12" custombackground="przyciskikolor" customtextcolor="tekstnaglowkow">E - dziennik ></a>
+                <a href="https://dluzyna.mobidziennik.pl/dziennik/" target="_blank" class="p5edziennik col-xs-12" custombackground="przyciskikolor" customtextcolor="tekstnaglowkow" custombordercolor="tresctlo">E - dziennik ></a>
             </div>
+
             <!-- ZMIANA SZEROKOŚCI bootsrtrap col-md-1 do 12.5%; ZMIANA bootstrap padding-->
             <!--MENU-->
             <div class="menuGlowne">
-                <div class="przycisk p1 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
-                    <div style="line-height:70px;" class="dropdown-toggle startBtn" data-toggle="dropdown">Start</div>
-                    <div class="dropdown col-xs-12">
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Aktualnosci" class="actionLink"><span class="menuFont">Aktualnosci</span></a></div>
-                        <div><a asp-action="Index" asp-controller="Historia" class="actionLink"><span class="menuFont">Historia<br />Szkoły</span></a></div>
-                        <div><a asp-action="Index" asp-controller="Sukcesy" class="actionLink"><span class="menuFont">Nasze<br />sukcesy</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Dokumenty" class="actionLink"><span class="menuFont">Dokumenty</span></a></div>
-                        <div><a asp-action="Index" asp-controller="GronoPedagogiczne" class="actionLink"><span class="menuFont">Grono<br />pedagogiczne</span></a></div>
-                        <div><a href="https://1drv.ms/f/s!Ag_5UG3Vnd4HgQ9LGxq3bGfICu_f" target="_blank" class="actionLink"><span class="menuFont">Galeria<br />zdjęć</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Kontakt" class="actionLink"><span class="menuFont">Kontakt</span></a></div>
+                <div class="przycisk p1 col-xs-3 col-sm-3 col-md-1" custombackground="p1">
+                    <div style="line-height:70px;" class="dropdown-toggle startBtn" data-toggle="dropdown" customtextcolor="tekstnaglowkow">Start</div>
+                    <div class="dropdown col-xs-12" custombordercolor="glownynaglowektlo">
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Aktualnosci" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Aktualnosci</span></a></div>
+                        <div><a asp-action="Index" asp-controller="Historia" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Historia<br />Szkoły</span></a></div>
+                        <div><a asp-action="Index" asp-controller="Sukcesy" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Nasze<br />sukcesy</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Dokumenty" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Dokumenty</span></a></div>
+                        <div><a asp-action="Index" asp-controller="GronoPedagogiczne" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Grono<br />pedagogiczne</span></a></div>
+                        <div><a href="https://1drv.ms/f/s!Ag_5UG3Vnd4HgQ9LGxq3bGfICu_f" target="_blank" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Galeria<br />zdjęć</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Kontakt" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Kontakt</span></a></div>
                     </div>
                 </div>
-                <div class="przycisk p2 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
-                    <div class="dlauczniaBtn">Dla<br />ucznia</div>
-                    <div class="dropdown">
-                        <div><a asp-action="Index" asp-controller="Samorzad" class="actionLink"><span class="menuFont">Samorząd<br />uczniowski</span></a></div>
-                        <div><a asp-action="Index" asp-controller="ZajeciaDodatkowe" class="actionLink"><span class="menuFont">Zajęcia<br />dodatkowe</span></a></div>
-                        <div><a asp-action="Index" asp-controller="Plan" class="actionLink"><span class="menuFont">Plan<br />lekcji</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Autobus" class="actionLink"><span class="menuFont">Autobus</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Konkursy" class="actionLink"><span class="menuFont">Konkursy</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Biblioteka" class="actionLink"><span class="menuFont">Biblioteka</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Sport" class="actionLink"><span class="menuFont">Sport</span></a></div>
+                <div class="przycisk p2 col-xs-3 col-sm-3 col-md-1" custombackground="p2">
+                    <div class="dlauczniaBtn" customtextcolor="tekstnaglowkow">Dla<br />ucznia</div>
+                    <div class="dropdown" custombordercolor="glownynaglowektlo">
+                        <div><a asp-action="Index" asp-controller="Samorzad" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Samorząd<br />uczniowski</span></a></div>
+                        <div><a asp-action="Index" asp-controller="ZajeciaDodatkowe" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Zajęcia<br />dodatkowe</span></a></div>
+                        <div><a asp-action="Index" asp-controller="Plan" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Plan<br />lekcji</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Autobus" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Autobus</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Konkursy" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Konkursy</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Biblioteka" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Biblioteka</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Sport" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Sport</span></a></div>
                     </div>
                 </div>
-                <div class="przycisk p3 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
-                    <div class="dlarodzicaBtn">Dla<br />rodzica</div>
-                    <div class="dropdown">
-                        <div><a asp-action="Index" asp-controller="RadaRodzicow" class="actionLink"><span class="menuFont">Rada<br />rodziców</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Podreczniki" class="actionLink"><span class="menuFont">Podręczniki</span></a></div>
-                        <div><a asp-action="Index" asp-controller="Wyprawka" class="actionLink"><span class="menuFont">Wyprawka<br />przedszkolna</span></a></div>
-                        <div><a asp-action="Index" asp-controller="Wydarzenia" class="actionLink"><span class="menuFont">Kalendarz<br />i zebrania</span></a></div>
-                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Rekrutacja" class="actionLink"><span class="menuFont">Rekrutacja</span></a></div>
+                <div class="przycisk p3 col-xs-3 col-sm-3 col-md-1" custombackground="p3">
+                    <div class="dlarodzicaBtn" customtextcolor="tekstnaglowkow">Dla<br />rodzica</div>
+                    <div class="dropdown" custombordercolor="glownynaglowektlo">
+                        <div><a asp-action="Index" asp-controller="RadaRodzicow" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Rada<br />rodziców</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Podreczniki" class="actionLink" customtextcolor="tekstnaglowkow"><span class="menuFont">Podręczniki</span></a></div>
+                        <div><a asp-action="Index" asp-controller="Wyprawka" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Wyprawka<br />przedszkolna</span></a></div>
+                        <div><a asp-action="Index" asp-controller="Wydarzenia" class="actionLink"><span class="menuFont" customtextcolor="tekstnaglowkow">Kalendarz<br />i zebrania</span></a></div>
+                        <div><a style="line-height:60px;" asp-action="Index" asp-controller="Rekrutacja" class="actionLink" customtextcolor="tekstnaglowkow"><span class="menuFont">Rekrutacja</span></a></div>
                     </div>
                 </div>
-                <div class="przycisk p4 col-xs-3 col-sm-3 col-md-1" customtextcolor="tekstnaglowkow">
-                    <div class="wartozobaczycBtn">Warto<br />zobaczyć</div>
-                    <div class="dropdown">
+                <div class="przycisk p4 col-xs-3 col-sm-3 col-md-1" custombackground="p4">
+                    <div class="wartozobaczycBtn" customtextcolor="tekstnaglowkow">Warto<br />zobaczyć</div>
+                    <div class="dropdown" custombordercolor="glownynaglowektlo">
                         <div><a style="line-height:60px;" href="http://wloszakowice.pl/" class="navBtn btn gmina" target="_blank"></a></div>
                         <div><a style="line-height:60px;" href="https://men.gov.pl/" class="navBtn btn men" target="_blank"></a></div>
                         <div><a style="line-height:60px;" href="http://www.oke.poznan.pl/" class="navBtn btn oke" target="_blank"></a></div>
@@ -87,6 +97,7 @@
                     </div>
                 </div>
             </div>
+
             <!--POKAZSLAJDOW-->
             <div class="slideshow"
                  data-slides='["/img/layout/slide1.jpg",
@@ -103,6 +114,7 @@
                     <a asp-action="Edit" asp-controller="ApplicationDisplay" class="btn btn-primary adminBtn">Ustawienia wyświetlania</a>
                 }
             </div>
+
             <!--DODATKI-->
             <div class="kontenerDodatkiLayout hidden-xs hidden-sm">
                 <!--zmiana planu-->
@@ -111,15 +123,14 @@
                     <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-warning">Edytuj komunikat</a>
                 }
                 <div>@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
-                <!--kalendarz-->
+                <!--calendar-->
                 <!--https://www.jqueryscript.net/time-clock/Mini-Event-Calendar-Plugin-jQuery.html-->
-                <div class="dodatekKontener">
-                    <div id="calendarr"></div>
-                </div>
+                <div id="calendarr"></div>
                 <br />
+
                 <!--weather-->
                 <div class="dodatekKontener" style="margin-top: 10px;">
-                    <div class="archiwumHeader">
+                    <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
                         Pogoda - Dłużyna, @DateTime.Now.ToShortDateString()
                     </div>
                     <div id="weather" class="weatherColor"></div>
@@ -131,19 +142,21 @@
                     @await Component.InvokeAsync(nameof(AktualnosciArchiwum))
                 </div>
                 <br />
+
                 <!--solectwo-->
                 <div class="dodatekKontener" style="height: 30px;">
-                    <a asp-action="Index" asp-controller="Solectwo" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombackground="przyciskikolor">Sołectwo ></a>
+                    <a asp-action="Index" asp-controller="Solectwo" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombordercolor="tresctlo" customtextcolor="tekstnaglowkow">Sołectwo ></a>
                 </div>
                 <br />
                 <div class="dodatekKontener" style="height: 30px;">
-                    <a href="http://dluzyna.pl/index.php" target="_blank" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombackground="przyciskikolor">Stara Strona ></a>
+                    <a href="http://dluzyna.pl/index.php" target="_blank" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombordercolor="tresctlo" customtextcolor="tekstnaglowkow">Stara Strona ></a>
                 </div>
                 <br />
-                <div class="center myLink">Design & code - <a href="http://przemyslaw-bak.pl/" target="_blank">przemyslaw-bak.pl</a></div>
+                <div class="center myLink" customtextcolor="tresckolor">Design & code: <a href="http://przemyslaw-bak.pl/" target="_blank" customtextcolor="tresckolor">przemyslaw-bak.pl</a></div>
                 <div class="space"></div>
             </div>
         </div>
+
         @RenderBody()
     </div>
     <!--SKRYPTY-->
@@ -160,25 +173,26 @@
     <script src="~/lib/colorpicker/jquery.minicolors.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/javascript.js"></script>
+    <!--Calendar script below-->
+    @await Component.InvokeAsync(nameof(WydarzeniaKalendarz))
+    <script src="~/js/styletriggery.js"></script>
     <script>
         $('.demo').minicolors();
     </script>
 
-    <!--Calendar script below-->
-    @await Component.InvokeAsync(nameof(WydarzeniaKalendarz))
     <!--COOKIES INFO-->
-    <div class="cookieBubble">
+    <div class="cookieBubble" custombackground="p3">
         <div class="cb-wrapper">
             <div class="cb-row">
                 <div class="cb-message">
-                    <span>Szanowny użytkowniku, nasza strona używa ciasteczek jedynie dla sprawnego funkcjonowania jej administracji. Żadne informacje nie są przechowywane, przetwarzane ani nikomu przekazywane. W razie pytań odnośnie polityki prywatności lub ciasteczek proszę o kontakt z administracją szkoły. Życzymy miłego korzystania z naszej strony.</span>
-                    <a href="javascript:void(0)" class="gotit-btn">OK</a>
+                    <span customtextcolor="tekstnaglowkow">Szanowny użytkowniku, nasza strona używa ciasteczek jedynie dla sprawnego funkcjonowania jej administracji. Żadne informacje nie są przechowywane, przetwarzane ani nikomu przekazywane. W razie pytań odnośnie polityki prywatności lub ciasteczek proszę o kontakt z administracją szkoły. Życzymy miłego korzystania z naszej strony.</span>
+                    <a href="javascript:void(0)" class="gotit-btn" customtextcolor="tekstnaglowkow">OK</a>
                 </div>
             </div>
         </div>
     </div>
     <!--STOPKA-->
-    <div class="stopa">
+    <div class="stopa" custombackground="p3" customtextcolor="tekstnaglowkow">
         @await Component.InvokeAsync(nameof(FootKontakt))
     </div>
 </body>

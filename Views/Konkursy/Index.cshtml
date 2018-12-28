@@ -21,19 +21,20 @@
             <div class="trescDetails"><div class="shift"> @Html.Raw(Model.Tresc)</div></div>
             <br />
             <!--FILE DOWNLOAD-->
-            @if (Enumerable.Count(ViewBag.fileList) != 0)
-            {
-                <dir>Pliki do pobrania:</dir>
+            <div class="paddingDownload">
+                @if (Enumerable.Count(ViewBag.fileList) != 0)
                 {
-                    foreach (var file in ViewBag.fileList)
+                    <dir>Pliki do pobrania:</dir>
                     {
-                        <a class="down" href="Konkursy/Download?file=@(ViewBag.fileDirectory + file)" target="_blank"><dir>@file<span>;</span></dir></a>
+                        foreach (var file in ViewBag.fileList)
+                        {
+                            <a class="down" href="Konkursy/Download?file=@(ViewBag.fileDirectory + file)" target="_blank" customtextcolor="tresckolor"><dir>@file<span>;</span></dir></a>
 
+                        }
                     }
                 }
-            }
-
+            </div>
+            </div>
+            <div class="space"></div>
         </div>
-    <div class="space"></div>
-</div>
 

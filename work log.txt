@@ -55,3 +55,7 @@ wysiwyg plugin`s translations,
 message to be added by admin,
 25.12 - updated Admins view for color changes and with color picker
 26.12 - added ViewBags in ActionFilter, registered ActionFilter, changing stylesheets
+27.12 - created TagHelpers for custom styling of html elements, created jQuery
+functions adding styling to specific classes
+28.12 - rebuilding style sheets for dynamic styling implementation, placing custom
+styling TagHelpers, implemented color converer for dropdown menu color gradation

@@ -102,7 +102,7 @@ namespace DluzynaSzkola2.Controllers
                 return NotFound();
             }
             Sukcesy dataBase = repository.Sukcesys.FirstOrDefault();
-            return View("Edit", dataBase);
+            return View("Details", dataBase);
         }
     }
 }

@@ -124,7 +124,7 @@
                     for (var j = 0; j < settings.events.length; j++) {
                         var d = settings.events[j].datetime;
                         if (d.getDate() == day && d.getMonth() == dMonth && d.getFullYear() == dYear) {
-                            cDay.addClass('c-event').attr('data-event-day', d.getDate()).css("background-color", settings.colors.przyciskikolor);
+                            cDay.addClass('c-event').attr('data-event-day', d.getDate());
                             cDay.on('mouseover', mouseOverEvent).on('mouseleave', mouseLeaveEvent);
                         }
                     }
@@ -188,8 +188,7 @@
             { title: 'Tênis de Mesa', description: 'BRA x ARG - Semifinal', datetime: new Date(2016, new Date().getMonth(), 23, 16) },
             { title: 'Ginástica Olímpica', description: 'Classificatórias de equipes', datetime: new Date(2016, new Date().getMonth(), 31, 16) }
         ],
-        firstDayOfWeek: 0,
-        colors: { glownynaglowektlo: "red", stronatlo: "green", przyciskikolor: "yellow", tresctlo: "cyan", naglowkikolor: "blue", tresckolor: "purple", strefaadminakolor: "pink" }
+        firstDayOfWeek: 0
 
     };
 

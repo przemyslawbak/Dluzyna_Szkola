@@ -24,13 +24,13 @@
         @if (Model.Galeria != "#")
         {
             <div class="dataDetails col-xs-6 col-sm-8"><div class="shift">Dodano: @Model.Dzien.ToShortDateString()</div></div>
-            <a href="@Model.Galeria" target="_blank" class="dalejButton dalejWpisu col-xs-3 col-sm-2" custombackground="przyciskikolor">Zdjęcia ></a>
+            <a href="@Model.Galeria" target="_blank" class="dalejButton dalejWpisu col-xs-3 col-sm-2" custombordercolor="tresctlo" custombackground="przyciskikolor" customtextcolor="tekstnaglowkow">Zdjęcia ></a>
         }
         @if (Model.Galeria == "#")
         {
             <div class="dataDetails col-xs-9 col-sm-10"><div class="shift">Dodano: @Model.Dzien.ToShortDateString()</div></div>
         }
-        <a asp-action="Index" class="dalejButton dalejWpisu col-xs-3 col-sm-2" custombackground="przyciskikolor">Powrót ></a>
+        <a asp-action="Index" class="dalejButton dalejWpisu col-xs-3 col-sm-2" custombordercolor="tresctlo" custombackground="przyciskikolor" customtextcolor="tekstnaglowkow">Powrót ></a>
 
     </div>
     <div class="space"></div>

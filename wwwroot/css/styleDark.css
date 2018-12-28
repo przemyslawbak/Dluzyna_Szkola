@@ -33,6 +33,9 @@ body {
     left: 190px;
     margin-top: 25px;
 }
+.paddingDownload {
+    padding-bottom: 10px;
+}
 .down:link, .down:active, .down:visited {
     font-weight: bold;
     color: black;
@@ -367,6 +370,7 @@ a {                                     /* WŁAŚCIWOŚCI "a"*/
     background-color: #FFFFFF;
     font-size: 16px;
     margin-right: 10px;
+    min-height: 340px;
 }
 
 .zdjecieDetails {
@@ -482,6 +486,7 @@ a {                                     /* WŁAŚCIWOŚCI "a"*/
     padding: 10px;
 }
 .archiwumLink:hover {
+    font-weight: bold;
     color: #60605F;
     overflow: hidden;
 }

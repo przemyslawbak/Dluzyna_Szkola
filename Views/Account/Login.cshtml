@@ -1,6 +1,6 @@
 ﻿@model LoginModel
 <div class="col-md-6 col-xs-9 col-sm-6 kontenerStrony">
-    <div class="tytulAdmin"><h4>Logowanie</h4></div>
+    <div class="tytulAdmin" customtextcolor="tekstnaglowkow"><h4>Logowanie</h4></div>
     <div class="text-danger" asp-validation-summary="All"></div>
     <form asp-action="Login" method="post" asp-antiforgery="true">
         <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />

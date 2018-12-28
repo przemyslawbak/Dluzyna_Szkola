@@ -3,7 +3,7 @@
 @if (Model.DzienZakonczenia > DateTime.Now)
 {
 <div class="dodatekKontener">
-    <div class="archiwumHeader">
+    <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
         Komunikat
     </div>
     <div style="text-align: center;">
@@ -14,18 +14,18 @@
         <br />
     </div>
     <!--FILE DOWNLOAD-->
-    <div>
+    <div class="paddingDownload">
         @if (Enumerable.Count(ViewBag.fileList) != 0)
         {
             <dir>Pliki do pobrania:</dir>
             {
                 foreach (var file in ViewBag.fileList)
                 {
-                    <a class="down" href="Biblioteka/Download?file=@(ViewBag.fileDirectory + file)" target="_blank"><dir>@file<span>;</span></dir></a>
+                    <a class="down" href="Biblioteka/Download?file=@(ViewBag.fileDirectory + file)" target="_blank" customtextcolor="tresckolor"><dir>@file<span>;</span></dir></a>
                 }
             }
         }
     </div>
-</div>
+    </div>
     <div style="margin-bottom: 20px;"></div>
-}
+    }

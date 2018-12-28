@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Aktualnosci>
 
 <div class="dodatekKontener">
-    <div class="archiwumHeader">
+    <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
         Ostatnie aktualności:
     </div>
     @{ int i = 0;
@@ -10,7 +10,7 @@
             @if (i < 10)
             {
                 <br />
-                <a asp-action="Details" asp-controller="Aktualnosci" asp-route-ID="@item.ID" class="archiwumLink">@item.Tytul</a>
+                <a asp-action="Details" asp-controller="Aktualnosci" asp-route-ID="@item.ID" class="archiwumLink" customtextcolor="tresckolor">@item.Tytul</a>
             }
 
             i++;

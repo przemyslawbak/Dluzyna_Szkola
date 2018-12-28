@@ -7,16 +7,21 @@ using System.Threading.Tasks;
 
 namespace DluzynaSzkola2.Infrastructure
 {
+    [HtmlTargetElement(Attributes = CustomBorderColor)]
     [HtmlTargetElement(Attributes = CustomTextColor)]
     [HtmlTargetElement(Attributes = CustomBackground)]
     public class StylingTagHelper : TagHelper
     {
+        ColorConverts konwerter = new ColorConverts();
+        private const string CustomBorderColor = "custombordercolor";
         private const string CustomTextColor = "customtextcolor";
         private const string CustomBackground = "custombackground";
         [HtmlAttributeName(CustomBackground)]
-        public string TheBackground { get; set; } //helpers property
+        public string TheBackground { get; set; } //własność helpera
         [HtmlAttributeName(CustomTextColor)]
-        public string TheTextColor { get; set; } //helpers property
+        public string TheTextColor { get; set; } //własność helpera
+        [HtmlAttributeName(CustomBorderColor)]
+        public string TheBorder { get; set; } //własność helpera
         private IApplicationDisplay repository;
 
         public StylingTagHelper(IApplicationDisplay repo)
@@ -25,46 +30,72 @@ namespace DluzynaSzkola2.Infrastructure
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            var backgroundStyle = "";
+            string addedColor = "";
+            string addedBackground = "";
+            string addedBorder = "";
+            string changes = "";
             var colors = repository.ApplicationDisplays.FirstOrDefault(); //context
             switch (TheBackground)
             {
                 case "glownynaglowektlo":
-                    backgroundStyle = "background-color:" + colors.GlownyNaglowekTlo; //new color
+                    addedBackground = "background-color:" + colors.GlownyNaglowekTlo + "; "; //nowy kolor
                     break;
                 case "stronatlo":
-                    backgroundStyle = "background-color:" + colors.StronaTlo; //new color
+                    addedBackground = "background-color:" + colors.StronaTlo + "; "; //nowy kolor
                     break;
                 case "przyciskikolor":
-                    backgroundStyle = "background-color:" + colors.PrzyciskiKolor; //new color
+                    addedBackground = "background-color:" + colors.PrzyciskiKolor +"; "; //nowy kolor
                     break;
                 case "tresctlo":
-                    backgroundStyle = "background-color:" + colors.TrescTlo; //new color
+                    addedBackground = "background-color:" + colors.TrescTlo + "; "; //nowy kolor
                     break;
                 case "naglowkikolor":
-                    backgroundStyle = "background-color:" + colors.NaglowkiTlo; //new color
+                    addedBackground = "background-color:" + colors.NaglowkiTlo + "; "; //nowy kolor
+                    break;
+                    //kolory menu rozwijanego
+                case "p1":
+                    addedBackground = "background-color:" + konwerter.Konwertuj(colors.GlownyNaglowekTlo, 0.1) + "; "; //nowy kolor
+                    break;
+                case "p2":
+                    addedBackground = "background-color:" + konwerter.Konwertuj(colors.GlownyNaglowekTlo, 0.2) + "; "; //nowy kolor
+                    break;
+                case "p3":
+                    addedBackground = "background-color:" + konwerter.Konwertuj(colors.GlownyNaglowekTlo, 0.3) + "; "; //nowy kolor
+                    break;
+                case "p4":
+                    addedBackground = "background-color:" + konwerter.Konwertuj(colors.GlownyNaglowekTlo, 0.4) + "; "; //nowy kolor
                     break;
             }
             switch (TheTextColor)
             {
                 case "strefaadminakolor":
-                    backgroundStyle = "color:" + colors.StrefaAdminaKolor; //new color
+                    addedColor = "color:" + colors.StrefaAdminaKolor + "; "; //nowy kolor
                     break;
                 case "tresckolor":
-                    backgroundStyle = "color:" + colors.TrescKolor; //new color
+                    addedColor = "color:" + colors.TrescKolor + "; "; //nowy kolor
                     break;
                 case "tekstnaglowkow":
-                    backgroundStyle = "color:" + colors.TrescTlo; //new color
+                    addedColor = "color:" + colors.TrescTlo + "; "; //nowy kolor
                     break;
             }
+            switch (TheBorder)
+            {
+                case "tresctlo":
+                    addedBorder = "border-color:" + colors.TrescTlo + "; "; //nowy kolor
+                    break;
+                case "glownynaglowektlo":
+                    addedBorder = "border-color:" + colors.GlownyNaglowekTlo + "; "; //nowy kolor
+                    break;
+            }
+            changes = addedBackground + addedBorder + addedColor;
             if (!output.Attributes.ContainsName("style"))
             {
-                output.Attributes.SetAttribute("style", backgroundStyle);
+                output.Attributes.SetAttribute("style", changes);
             }
             else
             {
                 var currentAttribute = output.Attributes.FirstOrDefault(attribute => attribute.Name == "style"); //get value of 'style'
-                string newAttributeValue = $"{currentAttribute.Value.ToString() + "; " + backgroundStyle}"; //combine style values
+                string newAttributeValue = $"{currentAttribute.Value.ToString() + "; " + changes}"; //combine style values
                 output.Attributes.Remove(currentAttribute); //remove old attribute
                 output.Attributes.SetAttribute("style", newAttributeValue); //add merged attribute values
             }

@@ -35,6 +35,8 @@ namespace DluzynaSzkola2.Infrastructure
                 else
                 {
                     tag.Attributes["class"] = "tagStyle";
+                    tag.Attributes["custombordercolor"] = "tresctlo";
+                    tag.Attributes["custombackground"] = "przyciskikolor";
                 }
                 tag.Attributes["href"] = urlHelper.Action(PageAction, new { myPage = i });
                 tag.InnerHtml.Append(i.ToString() + "");
