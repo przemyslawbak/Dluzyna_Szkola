@@ -34,16 +34,16 @@
     $(".przycisk.p4").mouseleave(function () {
         $(this).stop().animate({ 'height': '68px' }, 'slow');
     });
-
+    //tag helpers
+    var attrib = "custombackground";
+    var val = "przyciskikolor";
     //change color for dropdown
     $(".dropdown div").hover(function () {
+        if ($(this).attr(attrib)) {
+            $(this).removeAttr(attrib);
+        } else {
+            $(this).attr(attrib, val);
+        }
         $(this).toggleClass("najazdMenu");
     });
-
-    //maybe to be removed, to verify
-    $(".wpisArchiwum").hover(function () {
-        $(this).toggleClass("najazdMenu");
-    });
-
-
 });

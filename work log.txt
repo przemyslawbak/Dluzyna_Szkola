@@ -58,4 +58,5 @@ message to be added by admin,
 27.12 - created TagHelpers for custom styling of html elements, created jQuery
 functions adding styling to specific classes
 28.12 - rebuilding style sheets for dynamic styling implementation, placing custom
-styling TagHelpers, implemented color converer for dropdown menu color gradation
+styling TagHelpers, implemented color converer for dropdown menu color gradation,
+replaced dark CSS style sheet,

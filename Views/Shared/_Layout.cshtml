@@ -17,14 +17,15 @@
     <link rel="stylesheet" type="text/css" href="~/lib/datetimepicker/datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="~/lib/weather/weather.css">
     <link rel="stylesheet" type="text/css" href="~/lib/colorpicker/jquery.minicolors.css">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/calendar/jquery.e-calendar.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/cookieBubble/cookieBubble.css">
     <meta charset="utf-8" />
     <title>
         @ViewBag.Title
     </title>
 </head>
 <body custombackground="stronatlo">
-    <!--stylesheet conditional display-->
-    @await Component.InvokeAsync(nameof(DisplayOptions))
     <!--ADMIN LOGIN-->
     <div class="pasekLogowania">
         @if (User?.Identity?.IsAuthenticated ?? false)
@@ -40,9 +41,9 @@
     <div class="caloscWidoku">
 
         <!--NAGŁÓEK-->
-        <div class="row">
+        <div class="row" customfilter="yes">
             <div class="header col-xs-12 col-sm-12 col-md-6" custombackground="glownynaglowektlo">
-                @await Component.InvokeAsync(nameof(DisplayLogo))
+                <a style="line-height:60px;" asp-action="Index" asp-controller="Aktualnosci" class="actionLink"><img class="obrazNaglowka" src="~/img/layout/godloilogo.png" /></a>
                 <a href="https://dluzyna.mobidziennik.pl/dziennik/" target="_blank" class="p5edziennik col-xs-12" custombackground="przyciskikolor" customtextcolor="tekstnaglowkow" custombordercolor="tresctlo">E - dziennik ></a>
             </div>
 
@@ -116,20 +117,21 @@
             </div>
 
             <!--DODATKI-->
-            <div class="kontenerDodatkiLayout hidden-xs hidden-sm">
+            <div class="kontenerDodatkiLayout hidden-xs hidden-sm" customfilter="yes">
                 <!--zmiana planu-->
                 @if (User?.Identity?.IsAuthenticated ?? false)
                 {
                     <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-warning">Edytuj komunikat</a>
                 }
-                <div>@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
-                <!--calendar-->
-                <!--https://www.jqueryscript.net/time-clock/Mini-Event-Calendar-Plugin-jQuery.html-->
-                <div id="calendarr"></div>
-                <br />
+                <div style="margin-top: 0;">@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
+                <div class="dodatekKontener" style="margin-top: 10px;">
+                    <!--calendar-->
+                    <!--https://www.jqueryscript.net/time-clock/Mini-Event-Calendar-Plugin-jQuery.html-->
+                    <div id="calendarr"></div>
+                </div>
 
                 <!--weather-->
-                <div class="dodatekKontener" style="margin-top: 10px;">
+                <div class="dodatekKontener" style="margin-top: 30px;">
                     <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
                         Pogoda - Dłużyna, @DateTime.Now.ToShortDateString()
                     </div>
@@ -157,7 +159,9 @@
             </div>
         </div>
 
-        @RenderBody()
+        <div>
+            @RenderBody()
+        </div>
     </div>
     <!--SKRYPTY-->
     <script src="~/js/jquery.js"></script>
@@ -196,4 +200,5 @@
         @await Component.InvokeAsync(nameof(FootKontakt))
     </div>
 </body>
+
 </html>

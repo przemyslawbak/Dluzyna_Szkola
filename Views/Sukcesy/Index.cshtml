@@ -11,7 +11,7 @@
     }
     <div class="spaceSide"></div>
     <div class="tytulGrono col-xs-12" style="box-shadow: 0 5px 20px #000000;">
-        <div class="tytulDetails">
+        <div class="tytulDetails" customtextcolor="tekstnaglowkow">
             <div>Nasze Sukcesy</div>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="kontenerOsoby col-xs-12">
             <div class="row">
 
-                <div class="nazwiskoOsoby col-xs-9"><div class="shift">@item.Tytul</div></div>
+                <div class="nazwiskoOsoby col-xs-9" customtextcolor="tekstnaglowkow"><div class="shift">@item.Tytul</div></div>
                 <div class="dalejSukcesy"><a asp-action="Details" asp-route-ID="@item.ID" class="dalejButton" custombackground="przyciskikolor" customtextcolor="tekstnaglowkow">Zobacz ></a></div>
             </div>
         </div>

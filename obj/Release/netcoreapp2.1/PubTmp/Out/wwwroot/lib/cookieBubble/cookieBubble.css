@@ -2,7 +2,6 @@
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: #AE9273;
     display: none;
     padding: 20px 15px;
     z-index: 9999;
@@ -23,7 +22,6 @@
         .cookieBubble .cb-wrapper .cb-row .cb-image svg {
           width: 75px; }
         .cookieBubble .cb-wrapper .cb-row span {
-            color: #FFEBCD;
             font-size: 14px;
             margin-top: 0px;
             display: inline-block;
@@ -32,8 +30,6 @@
         .cookieBubble .cb-wrapper .cb-row .gotit-btn {
             margin: 20px;
             text-decoration: none;
-            color: #FFEBCD;
-            background-color: #FF9B2D;
             padding: 10px 20px;
             display: inline-block;
             font-size: 18px;

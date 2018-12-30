@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 
 namespace DluzynaSzkola2.Infrastructure
 {
+    [HtmlTargetElement(Attributes = DarkFilter)]
     [HtmlTargetElement(Attributes = CustomBorderColor)]
     [HtmlTargetElement(Attributes = CustomTextColor)]
     [HtmlTargetElement(Attributes = CustomBackground)]
     public class StylingTagHelper : TagHelper
     {
         ColorConverts konwerter = new ColorConverts();
+        private const string DarkFilter = "customfilter";
         private const string CustomBorderColor = "custombordercolor";
         private const string CustomTextColor = "customtextcolor";
         private const string CustomBackground = "custombackground";
+        [HtmlAttributeName(DarkFilter)]
+        public string TheFilter { get; set; } //własność helpera
         [HtmlAttributeName(CustomBackground)]
         public string TheBackground { get; set; } //własność helpera
         [HtmlAttributeName(CustomTextColor)]
@@ -30,11 +34,36 @@ namespace DluzynaSzkola2.Infrastructure
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            ApplicationDisplay colors = new ApplicationDisplay();
+            string filterValue = "";
+            string addedFilter = "";
             string addedColor = "";
             string addedBackground = "";
             string addedBorder = "";
             string changes = "";
-            var colors = repository.ApplicationDisplays.FirstOrDefault(); //context
+            ApplicationDisplay colorsDB = repository.ApplicationDisplays.FirstOrDefault(); //context
+            if (colorsDB.DisplayDark) //jeśli żałoba
+            {
+                colors.GlownyNaglowekTlo = "#000000";
+                colors.NaglowkiTlo = "#333332";
+                colors.PrzyciskiKolor = "#60605F";
+                colors.StrefaAdminaKolor = "#000000";
+                colors.StronaTlo = "#E0DCDC";
+                colors.TrescKolor = "#000000";
+                colors.TrescTlo = "#FFFFFF";
+                filterValue = " -webkit-filter: grayscale(60%); filter: grayscale(60%); ";
+            }
+            else
+            {
+                colors = colorsDB;
+                filterValue = "";
+            }
+            switch (TheFilter)
+            {
+                case "yes":
+                    addedFilter = filterValue;
+                    break;
+            }
             switch (TheBackground)
             {
                 case "glownynaglowektlo":
@@ -87,7 +116,7 @@ namespace DluzynaSzkola2.Infrastructure
                     addedBorder = "border-color:" + colors.GlownyNaglowekTlo + "; "; //nowy kolor
                     break;
             }
-            changes = addedBackground + addedBorder + addedColor;
+            changes = addedBackground + addedBorder + addedColor + addedFilter; //UPDATE DLA NOWYCH STYLÓW!
             if (!output.Attributes.ContainsName("style"))
             {
                 output.Attributes.SetAttribute("style", changes);

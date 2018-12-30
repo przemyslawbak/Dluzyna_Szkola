@@ -12,6 +12,7 @@ namespace DluzynaSzkola2.Models
     //color info for JS plugins
     public class CommonViewBagInitializerActionFilter : ActionFilterAttribute
     {
+
         private readonly IApplicationDisplay repository;
         public CommonViewBagInitializerActionFilter(IApplicationDisplay repo)
         {
@@ -19,9 +20,10 @@ namespace DluzynaSzkola2.Models
         }
         public override void OnResultExecuting(ResultExecutingContext context)
         {
+            ApplicationDisplay colors = new ApplicationDisplay();
 
-            var colors = repository.ApplicationDisplays.FirstOrDefault();
-            if (colors == null)
+            ApplicationDisplay colorsDB = repository.ApplicationDisplays.FirstOrDefault();
+            if (colorsDB == null)
             {
                 var newDisplay = new ApplicationDisplay
                 {
@@ -35,6 +37,20 @@ namespace DluzynaSzkola2.Models
                 };
                 repository.SaveApplicationDisplay(newDisplay);
                 colors = newDisplay;
+            }
+            if (colorsDB.DisplayDark) //jeśli żałoba
+            {
+                colors.GlownyNaglowekTlo = "#000000";
+                colors.NaglowkiTlo = "#333332";
+                colors.PrzyciskiKolor = "#60605F";
+                colors.StrefaAdminaKolor = "#000000";
+                colors.StronaTlo = "#E0DCDC";
+                colors.TrescKolor = "#000000";
+                colors.TrescTlo = "#FFFFFF";
+            }
+            else
+            {
+                colors = colorsDB;
             }
             ((Controller)context.Controller).ViewBag.GlownyNaglowekTlo = colors.GlownyNaglowekTlo;
             ((Controller)context.Controller).ViewBag.StronaTlo = colors.StronaTlo;

@@ -15,7 +15,6 @@
         var dMonth = adMonth;
         var dYear = adYear;
         var instance = object;
-
         var settings = $.extend({}, $.fn.eCalendar.defaults, options);
 
         function lpad(value, length, pad) {
@@ -74,19 +73,7 @@
             print();
         };
 
-        function loadEvents() {
-            if (typeof settings.url != 'undefined' && settings.url != '') {
-                $.ajax({url: settings.url,
-                    async: false,
-                    success: function (result) {
-                        settings.events = result;
-                    }
-                });
-            }
-        }
-
         function print() {
-            loadEvents();
             var dWeekDayOfMonthStart = new Date(dYear, dMonth, 1).getDay() - settings.firstDayOfWeek;
             if (dWeekDayOfMonthStart < 0) {
                 dWeekDayOfMonthStart = 6 - ((dWeekDayOfMonthStart + 1) * -1);
@@ -161,16 +148,15 @@
                     item.append(title).append(description);
 
                     // Add the url to the description if is set
-                    if( settings.events[i].url !== undefined )
-                    {
+                    if (settings.events[i].url !== undefined) {
                         /**
                          * If the setting url_blank is set and is true, the target of the url
                          * will be "_blank"
                          */
-                        type_url = settings.events[i].url_blank !== undefined && 
-                                   settings.events[i].url_blank === true ? 
-                                   '_blank':'';
-                        description.wrap( '<a href="'+ settings.events[i].url +'" target="'+type_url+'" ></a>' );
+                        type_url = settings.events[i].url_blank !== undefined &&
+                            settings.events[i].url_blank === true ?
+                            '_blank' : '';
+                        description.wrap('<a href="' + settings.events[i].url + '" target="' + type_url + '" ></a>');
                     }
 
                     eventList.append(item);
@@ -194,15 +180,16 @@
     $.fn.eCalendar.defaults = {
         weekDays: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
         months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        textArrows: {previous: '<', next: '>'},
+        textArrows: { previous: '<', next: '>' },
         eventTitle: 'Eventos',
         url: '',
         events: [
-            {title: 'Evento de Abertura', description: 'Abertura das Olimpíadas Rio 2016', datetime: new Date(2016, new Date().getMonth(), 12, 17)},
-            {title: 'Tênis de Mesa', description: 'BRA x ARG - Semifinal', datetime: new Date(2016, new Date().getMonth(), 23, 16)},
-            {title: 'Ginástica Olímpica', description: 'Classificatórias de equipes', datetime: new Date(2016, new Date().getMonth(), 31, 16)}
+            { title: 'Evento de Abertura', description: 'Abertura das Olimpíadas Rio 2016', datetime: new Date(2016, new Date().getMonth(), 12, 17) },
+            { title: 'Tênis de Mesa', description: 'BRA x ARG - Semifinal', datetime: new Date(2016, new Date().getMonth(), 23, 16) },
+            { title: 'Ginástica Olímpica', description: 'Classificatórias de equipes', datetime: new Date(2016, new Date().getMonth(), 31, 16) }
         ],
         firstDayOfWeek: 0
+
     };
 
 }(jQuery));

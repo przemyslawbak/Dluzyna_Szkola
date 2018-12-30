@@ -20,8 +20,8 @@ namespace DluzynaSzkola2.Controllers
         }
         public ActionResult Edit()
         {
-            var displayDarkView = repository.ApplicationDisplays.FirstOrDefault();
-            if (displayDarkView == null)
+            var displayView = repository.ApplicationDisplays.FirstOrDefault();
+            if (displayView == null)
             {
                 var newDisplay = new ApplicationDisplay
                 {
@@ -34,9 +34,9 @@ namespace DluzynaSzkola2.Controllers
                     DisplayDark = false
                 };
                 repository.SaveApplicationDisplay(newDisplay);
-                displayDarkView = newDisplay;
+                displayView = newDisplay;
             }
-            return View(displayDarkView);
+            return View(displayView);
         }
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
