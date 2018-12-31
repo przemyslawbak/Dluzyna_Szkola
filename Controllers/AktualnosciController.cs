@@ -57,7 +57,7 @@ namespace DluzynaSzkola2.Controllers
             return View(aktualnosci);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         // GET: Aktualnosci/Create
         public IActionResult Create()
         {
@@ -70,7 +70,7 @@ namespace DluzynaSzkola2.Controllers
             };
             return View("Edit", newAktualnosci);
         }
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         // GET: Aktualnosci/Edit/5
         public IActionResult Edit(long? id)
         {
@@ -96,7 +96,7 @@ namespace DluzynaSzkola2.Controllers
                 return View(aktualnosciCreateVM);
             }
         }
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(AktualnosciCreateVM aktualnosci, byte[] picture)
@@ -150,7 +150,7 @@ namespace DluzynaSzkola2.Controllers
             }
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         // POST: Aktualnosci/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

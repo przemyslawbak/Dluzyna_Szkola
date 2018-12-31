@@ -35,7 +35,7 @@ namespace DluzynaSzkola2.Controllers
             return View(dataBase);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         public ActionResult Edit()
         {
             Kontakt dataBase = repository.Kontakts.FirstOrDefault();
@@ -56,7 +56,7 @@ namespace DluzynaSzkola2.Controllers
             return View(dataBase);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Kontakt modelReturned)

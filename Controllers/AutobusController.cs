@@ -40,7 +40,7 @@ namespace DluzynaSzkola2.Controllers
             return View(dataBase);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         public ActionResult Edit()
         {
             Autobus dataBase = repository.Autobuses.FirstOrDefault();
@@ -61,7 +61,7 @@ namespace DluzynaSzkola2.Controllers
             return View(dataBase);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Autobus modelReturned, List<IFormFile> files)
@@ -103,7 +103,7 @@ namespace DluzynaSzkola2.Controllers
             };
             return response;
         }
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteFile(string file)

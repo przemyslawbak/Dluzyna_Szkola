@@ -17,7 +17,7 @@ namespace DluzynaSzkola2.Controllers
         {
             repository = repo; //repository
         }
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         public ActionResult Edit()
         {
             ZmianaPlanu dataBase = repository.ZmianaPlanus.FirstOrDefault();
@@ -40,7 +40,7 @@ namespace DluzynaSzkola2.Controllers
             return View(dataBase);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ZmianaPlanu modelReturned, List<IFormFile> files)
@@ -84,7 +84,7 @@ namespace DluzynaSzkola2.Controllers
             };
             return response;
         }
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteFile(string file)

@@ -39,7 +39,7 @@ namespace DluzynaSzkola2.Controllers
             return View(dataBase);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         public ActionResult Edit()
         {
             Historia dataBase = repository.Historias.FirstOrDefault();
@@ -60,7 +60,7 @@ namespace DluzynaSzkola2.Controllers
             return View(dataBase);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Historia modelReturned, List<IFormFile> files)
@@ -101,7 +101,7 @@ namespace DluzynaSzkola2.Controllers
             };
             return response;
         }
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteFile(string file)

@@ -59,4 +59,4 @@ message to be added by admin,
 functions adding styling to specific classes
 28.12 - rebuilding style sheets for dynamic styling implementation, placing custom
 styling TagHelpers, implemented color converer for dropdown menu color gradation,
-replaced dark CSS style sheet,
+replaced dark CSS style sheet, mobile sizes bigger fonts

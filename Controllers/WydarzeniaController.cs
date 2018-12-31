@@ -24,7 +24,7 @@ namespace DluzynaSzkola2.Controllers
             return View(wydarzenia);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         // GET: Aktualnosci/Create
         public ViewResult Create()
         {
@@ -37,7 +37,7 @@ namespace DluzynaSzkola2.Controllers
             return View("Edit", newWydarzenie);
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         // GET: /Edit/5
         public ActionResult Edit(long? id)
         {
@@ -57,7 +57,7 @@ namespace DluzynaSzkola2.Controllers
             }
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         // POST: /Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -78,7 +78,7 @@ namespace DluzynaSzkola2.Controllers
             }
         }
 
-        [Authorize(Roles = "Moderatorzy")]
+        [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
