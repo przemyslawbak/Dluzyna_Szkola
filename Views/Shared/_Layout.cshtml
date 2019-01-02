@@ -110,9 +110,10 @@
             <div class="przyciskiAdmina">
                 @if (User?.Identity?.IsAuthenticated ?? false)
                 {
-                    <a asp-action="Index" asp-controller="Admin" class="btn btn-primary adminBtn">Dodaj/Usuń użytkowników</a>
-                    <a asp-action="Index" asp-controller="RoleAdmin" class="btn btn-primary adminBtn">Dodaj/Usuń moderatorów</a>
-                    <a asp-action="Edit" asp-controller="ApplicationDisplay" class="btn btn-primary adminBtn">Ustawienia wyświetlania</a>
+                    <div>Panel administratora: </div>
+                    <span><a asp-action="Index" asp-controller="Admin" class="btn btn-primary adminBtn" title="Dodawaj nowych użytkowników">Dodaj/Usuń użytkowników</a></span>
+                    <span><a asp-action="Index" asp-controller="RoleAdmin" class="btn btn-primary adminBtn" title="Przydzielaj uprawnienia moderatorów i administratorów">Dodaj/Usuń moderatorów</a></span>
+                    <span><a asp-action="Edit" asp-controller="ApplicationDisplay" class="btn btn-primary adminBtn" title="Zmieniaj ustawienia kolorów i ustaw szatę żałoby">Ustawienia wyświetlania</a></span>
                 }
             </div>
 
