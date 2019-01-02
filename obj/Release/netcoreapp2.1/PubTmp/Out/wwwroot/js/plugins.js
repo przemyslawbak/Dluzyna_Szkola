@@ -62,8 +62,8 @@ $(document).ready(function () {
             if (weather.temp > 20 & weather.temp <= 25) { temper = 25; }
             if (weather.temp > 25) { temper = 99; rain = ''; }
 
-            if (weather.heatindex > 50) { odczuwalna = weather.temp; } else { odczuwalna = weather.heatindex; }
-            html = '<div class="col-md-6" style="float:left; text-align: center;">najnowsze pomiary<h1><i style="font-size: 65px; line-height: 50px;" class="icon-' + weather.code + '"></i><br/> ' + weather.temp + '&deg;' + weather.units.temp + '</h2> <p>odczuwalna temp.</p> ' + odczuwalna + '&deg;' + weather.units.temp + '</div>';
+            //oczuwalna temp zamieniona na st Celcjusza
+            html = '<div class="col-md-6" style="float:left; text-align: center;">najnowsze pomiary<h1><i style="font-size: 65px; line-height: 50px;" class="icon-' + weather.code + '"></i><br/> ' + weather.temp + '&deg;' + weather.units.temp + '</h2> <p>odczuwalna temp.</p> ' + Math.round((5.0 / 9.0) * (weather.wind.chill - 32.0)) + '&deg;' + weather.units.temp + '</div>';
             html += '<div class="col-md-6" style="float:left;"><a onclick="changeGender();"><img id="ludzik" style="height: 200px; margin-top: 20px;  margin-bottom: 20px; cursor: pointer" src="/img/pogoda/ava_' + gender + '_' + temper + sun + rain +'.png"/></a></div>';
             html += '<div class="col-md-4" style="float:left; text-align: center; border-top: solid 1px black;">min<h2>' + weather.low + '&deg' + weather.units.temp + '</h2></div>';
             html += '<div class="col-md-4" style="float:left; text-align: center; border-top: solid 1px black;">dzisiaj<h2><i style="font-size: 60px; line-height: 28px;" class="icon-' + weather.todayCode + '"></i> ' + '</h2></div>';
