@@ -7,8 +7,9 @@
     <div class="space"></div>
     <form asp-action="Edit" asp-controller="ApplicationDisplay" method="post" asp-antiforgery="true" class="col-md-12">
         <input type="hidden" asp-for="ID" />
-        <label asp-for="DisplayDark">Kolory żałoby</label>
+        <label asp-for="DisplayDark">Szata żałoby: </label>
         <input asp-for="DisplayDark" type="checkbox" />
+        <br />
         <br />
         <div class="form-group">
             <label asp-for="GlownyNaglowekTlo">Tło głównego nagłówka:</label>
