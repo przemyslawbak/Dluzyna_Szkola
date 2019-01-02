@@ -58,7 +58,6 @@ namespace DluzynaSzkola2.Controllers
         }
 
         [Authorize(Roles = "Moderatorzy, Administratorzy")]
-        // POST: /Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Wydarzenia editedWydarzenia)

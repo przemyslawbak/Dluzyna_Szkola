@@ -2,6 +2,17 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "AntiXSS/4.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/AntiXssLibrary.dll": {},
+          "lib/net40/HtmlSanitizationLibrary.dll": {}
+        },
+        "runtime": {
+          "lib/net40/AntiXssLibrary.dll": {},
+          "lib/net40/HtmlSanitizationLibrary.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -4798,6 +4809,27 @@
     }
   },
   "libraries": {
+    "AntiXSS/4.3.0": {
+      "sha512": "msu+pcJQR1IX6x3pfgeC5hDAU21EwzeEuSy8CP+YhXGDHqmKy43KlGBrIoMSh5+WG8q/mxDdRdsDBfwF83a03A==",
+      "type": "package",
+      "path": "antixss/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "antixss.4.3.0.nupkg.sha512",
+        "antixss.nuspec",
+        "lib/net20/AntiXssLibrary.dll",
+        "lib/net20/AntiXssLibrary.xml",
+        "lib/net35/AntiXssLibrary.dll",
+        "lib/net35/AntiXssLibrary.xml",
+        "lib/net35/HtmlSanitizationLibrary.dll",
+        "lib/net35/HtmlSanitizationLibrary.xml",
+        "lib/net40/AntiXssLibrary.dll",
+        "lib/net40/AntiXssLibrary.xml",
+        "lib/net40/HtmlSanitizationLibrary.dll",
+        "lib/net40/HtmlSanitizationLibrary.xml"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "zisTbxitzki256+rKY0myI2T1yLyO9+qAU8P+FXkd8Dv0Iymk484Y9SbwUlyL3igF/bpiCv7SCdv349rN/JbfQ==",
       "type": "package",
@@ -13071,6 +13103,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "AntiXSS >= 4.3.0",
       "Microsoft.AspNetCore.All >= 2.0.8",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 2.1.3",
       "Microsoft.EntityFrameworkCore.Design >= 2.1.2",
@@ -13120,6 +13153,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "AntiXSS": {
+            "target": "Package",
+            "version": "[4.3.0, )"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "[2.0.8, )"
@@ -13149,5 +13186,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AntiXSS 4.3.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "AntiXSS",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

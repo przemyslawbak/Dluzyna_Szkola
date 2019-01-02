@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,7 +67,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(Biblioteka modelReturned, List<IFormFile> files)
         {
             Biblioteka dataBase = repository.Bibliotekas.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveBiblioteka(dataBase);
             if (files != null)
             {

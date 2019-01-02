@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,7 +67,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(Konkursy modelReturned, List<IFormFile> files)
         {
             Konkursy dataBase = repository.Konkursys.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveKonkursy(dataBase);
             if (files != null)
             {

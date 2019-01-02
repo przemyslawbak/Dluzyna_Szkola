@@ -1,6 +1,7 @@
 ﻿using DluzynaSzkola2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,23 +58,25 @@ namespace DluzynaSzkola2.Controllers
         }
 
         [Authorize(Roles = "Moderatorzy, Administratorzy")]
-        // POST: Aktualnosci/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Sukcesy editedSukces)
+        public ActionResult Edit(Sukcesy modelReturned)
         {
+            Sukcesy dataBase = repository.Sukcesys.FirstOrDefault();
             if (ModelState.IsValid)
             {
-                if (editedSukces == null)
+                if (modelReturned == null)
                 {
                     return RedirectToAction(nameof(Index));
                 }
-                repository.SaveSukces(editedSukces);
+                dataBase.Tytul = modelReturned.Tytul;
+                dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
+                repository.SaveSukces(dataBase);
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                return View(editedSukces);
+                return View(modelReturned);
             }
         }
 

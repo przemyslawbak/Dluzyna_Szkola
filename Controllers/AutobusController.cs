@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -67,7 +68,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(Autobus modelReturned, List<IFormFile> files)
         {
             Autobus dataBase = repository.Autobuses.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveAutobusy(dataBase);
             if (files != null)
             {

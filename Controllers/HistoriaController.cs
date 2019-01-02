@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.Security.Application;
 
 namespace DluzynaSzkola2.Controllers
 {
@@ -66,6 +67,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(Historia modelReturned, List<IFormFile> files)
         {
             Historia dataBase = repository.Historias.FirstOrDefault();
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveHistoria(dataBase);
             if (files != null)
             {

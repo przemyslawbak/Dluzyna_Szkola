@@ -1,6 +1,7 @@
 ﻿using DluzynaSzkola2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,7 @@ namespace DluzynaSzkola2.Controllers
         public ActionResult Edit(Solectwo modelReturned)
         {
             Solectwo dataBase = repository.Solectwos.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveSolectwo(dataBase);
             return RedirectToAction(nameof(Index));
         }

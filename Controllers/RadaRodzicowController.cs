@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,7 +61,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(RadaRodzicow modelReturned, List<IFormFile> files)
         {
             RadaRodzicow dataBase = repository.RadaRodzicows.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveRadaRodzicow(dataBase);
             if (files != null)
             {

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.Security.Application;
 
 namespace DluzynaSzkola2.Controllers
 {
@@ -66,7 +67,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(Dokumenty modelReturned, List<IFormFile> files)
         {
             Dokumenty dataBase = repository.Dokumentys.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveDokumenty(dataBase);
             if (files != null)
             {

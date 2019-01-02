@@ -66,7 +66,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(ZajeciaDodatkowe modelReturned, List<IFormFile> files)
         {
             ZajeciaDodatkowe dataBase = repository.ZajeciaDodatkowes.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveZajecia(dataBase);
             if (files != null)
             {

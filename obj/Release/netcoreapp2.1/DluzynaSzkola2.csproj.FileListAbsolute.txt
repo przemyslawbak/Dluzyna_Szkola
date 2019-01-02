@@ -29,7 +29,6 @@ C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Web
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\bin\Release\netcoreapp2.1\DluzynaSzkola2.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.csprojAssemblyReference.cache
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.csproj.CoreCompileInputs.cache
-C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.AssemblyInfoInputs.cache
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.AssemblyInfo.cs
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.dll

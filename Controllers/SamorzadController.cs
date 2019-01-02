@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,7 +67,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(Samorzad modelReturned, List<IFormFile> files)
         {
             Samorzad dataBase = repository.Samorzads.FirstOrDefault();
-            dataBase.Tresc = modelReturned.Tresc;
+            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
             repository.SaveSamorzad(dataBase);
             if (files != null)
             {

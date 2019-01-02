@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DluzynaSzkola2.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
+using Microsoft.Security.Application;
 
 namespace DluzynaSzkola2.Controllers
 {
@@ -138,7 +139,7 @@ namespace DluzynaSzkola2.Controllers
                     if (aktualnosci.Remove == true) targetAktualnosci.AktualnosciImage = null;
                 }
                 targetAktualnosci.Dzien = aktualnosci.Dzien;
-                targetAktualnosci.Tresc = aktualnosci.Tresc;
+                targetAktualnosci.Tresc = Sanitizer.GetSafeHtmlFragment(aktualnosci.Tresc);
                 targetAktualnosci.Tytul = aktualnosci.Tytul;
                 targetAktualnosci.Galeria = aktualnosci.Galeria;
                 aktualnosciRepository.SaveAktualnosci(targetAktualnosci);
