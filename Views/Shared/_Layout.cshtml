@@ -107,22 +107,23 @@
 					"/img/layout/slide4.jpg",
 					"/img/layout/slide5.jpg"]'>
             </div>
-            <div class="przyciskiAdmina">
-                @if (User?.Identity?.IsAuthenticated ?? false)
-                {
-                    <div>Panel administratora: </div>
+            @if (User?.Identity?.IsAuthenticated ?? false)
+            {
+
+                <div class="przyciskiAdmina">
+                    <span>Panel administratora: </span>
                     <span><a asp-action="Index" asp-controller="Admin" class="btn btn-primary adminBtn" title="Dodawaj nowych użytkowników">Dodaj/Usuń użytkowników</a></span>
                     <span><a asp-action="Index" asp-controller="RoleAdmin" class="btn btn-primary adminBtn" title="Przydzielaj uprawnienia moderatorów i administratorów">Dodaj/Usuń moderatorów</a></span>
-                    <span><a asp-action="Edit" asp-controller="ApplicationDisplay" class="btn btn-primary adminBtn" title="Zmieniaj ustawienia kolorów i ustaw szatę żałoby">Ustawienia wyświetlania</a></span>
-                }
-            </div>
+                    <span><a asp-action="Edit" asp-controller="ApplicationDisplay" class="btn btn-primary adminBtn" title="Zmieniaj ustawienia kolorów lub ustaw szatę żałoby">Ustawienia kolorów</a></span>
+                </div>
+            }
 
             <!--DODATKI-->
             <div class="kontenerDodatkiLayout hidden-xs hidden-sm" customfilter="yes">
                 <!--zmiana planu-->
                 @if (User?.Identity?.IsAuthenticated ?? false)
                 {
-                    <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-warning">Edytuj komunikat</a>
+                    <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-primary">Dodaj/Edytuj komunikat specjalny</a>
                 }
                 <div style="margin-top: 0;">@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
                 <div class="dodatekKontener" style="margin-top: 10px;">

@@ -17,9 +17,9 @@
                     <td>
                         <form asp-action="Delete" asp-route-id="@user.Id" method="post" asp-antiforgery="true">
                             <a class="btn btn-sm btn-primary" asp-action="Edit"
-                               asp-route-id="@user.Id">Edytuj</a>
+                               asp-route-id="@user.Id">Edytuj użytkownika</a>
                             <button type="submit"
-                                    class="btn btn-sm btn-danger">
+                                    class="btn btn-sm btn-primary">
                                 Usuń
                             </button>
                         </form>

@@ -380,6 +380,8 @@ a { /* WŁAŚCIWOŚCI "a"*/
 .przyciskiAdmina {
     position: absolute;
     top: 270px;
+    left: 10px;
+    padding-bottom: 20px;
 }
 
 .tabela {
@@ -540,10 +542,14 @@ actionLink:link, actionLink:visited, actionLink:active {
     /*większa czcionka*/
     .kontenerStrony
     {
+        top: 420px;
         font-size: 1.4em;
     }
-    .trescWpisu
+    .przyciskiAdmina
     {
+        top: 350px;
+    }
+    .trescWpisu {
         font-size: 1.0em;
     }
     .trescDetails

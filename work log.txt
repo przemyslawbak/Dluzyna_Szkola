@@ -64,5 +64,5 @@ replaced dark CSS style sheet, mobile sizes bigger fonts
 31.12 - updated roles
 02.01 - removed dropdown menu background-color bug, updated calendars JS styling,
 corrected dropdown menu border styling bug, corrected 'feels like' temperature
-bug, added popups for admin buttons
+bug, added popups for admin buttons, updated styles of admin btns
 

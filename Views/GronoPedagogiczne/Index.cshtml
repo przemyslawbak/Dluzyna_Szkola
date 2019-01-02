@@ -21,13 +21,13 @@
         @if (User?.Identity?.IsAuthenticated ?? false)
         {
         <form asp-action="Delete" method="post" class="adminBtn" asp-antiforgery="true">
-            <a asp-action="Edit" class="btn btn-warning"
+            <a asp-action="Edit" class="btn btn-primary"
                asp-route-ID="@item.ID">
-                Edycja
+                Edycja osoby
             </a>
             <input type="hidden" name="ID" value="@item.ID" />
-            <button type="submit" class="btn btn-danger">
-                Usuń
+            <button type="submit" class="btn btn-primary">
+                Usuń osobę
             </button>
         </form>
         }

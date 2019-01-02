@@ -15,7 +15,7 @@
             {
                 <form asp-action="DeleteFile" method="post" class="adminBtn" asp-antiforgery="true">
                     <input type="hidden" name="file"value="@someFile" asp-action="@(ViewBag.fileDirectory + someFile)" />
-                    <button class="btn btn-danger" type="submit">Usuń</button>
+                    <button class="btn btn-primary" type="submit">Usuń plik</button>
                     @someFile
                 </form>
                 <br/>
@@ -34,7 +34,7 @@
             <textarea asp-for="Tresc" class="form-control wysiwyg"></textarea>
         </div>
         <div class="text-center">
-            <button class="btn btn-success" type="submit">Zapisz</button>
+            <button class="btn btn-primary" type="submit">Zapisz treść</button>
             <a asp-action="Index" class="btn btn-primary">Powrót</a>
         </div>
 

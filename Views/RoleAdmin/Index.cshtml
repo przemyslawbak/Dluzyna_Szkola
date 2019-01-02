@@ -16,14 +16,8 @@
                     <td>@role.Name</td>
                     <td identity-role="@role.Id"></td>
                     <td>
-                        <form asp-action="Delete" asp-route-id="@role.Id" method="post" asp-antiforgery="true">
-                            <a class="btn btn-sm btn-primary" asp-action="Edit"
-                               asp-route-id="@role.Id">Edytuj</a>
-                            <button type="submit"
-                                    class="btn btn-sm btn-danger">
-                                Usuń
-                            </button>
-                        </form>
+                        <a class="btn btn-sm btn-primary" asp-action="Edit"
+                           asp-route-id="@role.Id">Dodaj/Usuń użytkowników do tego poziomu dostępu</a>
                     </td>
                 </tr>
             }
