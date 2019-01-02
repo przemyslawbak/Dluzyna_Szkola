@@ -40,9 +40,9 @@
     //change color for dropdown
     $(".dropdown div").hover(function () {
         if ($(this).attr(attrib)) {
-            $(this).removeAttr(attrib);
+            $(this).removeAttr(attrib).css("background-color", "");
         } else {
-            $(this).attr(attrib, val);
+            $(this).attr(attrib, val).css("background-color", przyciskikolor);
         }
         $(this).toggleClass("najazdMenu");
     });
