@@ -62,5 +62,6 @@ styling TagHelpers, implemented color converer for dropdown menu color gradation
 replaced dark CSS style sheet, mobile sizes bigger fonts
 29.12-30.12 - **DAYS OFF** for weekend
 31.12 - updated roles
-02.01 - removed dropdown menu background-color bug,
+02.01 - removed dropdown menu background-color bug, updated calendars JS styling,
+
 

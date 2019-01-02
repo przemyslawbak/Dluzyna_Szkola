@@ -29,30 +29,30 @@
         }
 
         var mouseOver = function () {
-            $(this).addClass('c-nav-btn-over');
+            $(this).addClass('c-nav-btn-over').css("color", tresctlo).css("background-color", glownynaglowektlo);
         };
         var mouseLeave = function () {
-            $(this).removeClass('c-nav-btn-over');
+            $(this).removeClass('c-nav-btn-over').removeClass('c-event-over').css("color", tresctlo).css("background-color", naglowkikolor);
         };
         var mouseOverEvent = function () {
-            $(this).addClass('c-event-over');
+            $(this).addClass('c-event-over').css("color", tresctlo).css("background-color", glownynaglowektlo);
             var d = $(this).attr('data-event-day');
-            $('div.c-event-item[data-event-day="' + d + '"]').addClass('c-event-over');
+            $('div.c-event-item[data-event-day="' + d + '"]').addClass('c-event-over').css("color", tresctlo).css("background-color", glownynaglowektlo);
         };
         var mouseLeaveEvent = function () {
-            $(this).removeClass('c-event-over')
+            $(this).removeClass('c-event-over').css("color", tresctlo).css("background-color", przyciskikolor);
             var d = $(this).attr('data-event-day');
-            $('div.c-event-item[data-event-day="' + d + '"]').removeClass('c-event-over');
+            $('div.c-event-item[data-event-day="' + d + '"]').removeClass('c-event-over').css("color", tresctlo).css("background-color", przyciskikolor);
         };
         var mouseOverItem = function () {
-            $(this).addClass('c-event-over');
+            $(this).addClass('c-event-over').css("color", tresctlo).css("background-color", glownynaglowektlo);
             var d = $(this).attr('data-event-day');
-            $('div.c-event[data-event-day="' + d + '"]').addClass('c-event-over');
+            $('div.c-event[data-event-day="' + d + '"]').addClass('c-event-over').css("color", tresctlo).css("background-color", glownynaglowektlo);
         };
         var mouseLeaveItem = function () {
-            $(this).removeClass('c-event-over')
+            $(this).removeClass('c-event-over').css("color", tresctlo).css("background-color", przyciskikolor);
             var d = $(this).attr('data-event-day');
-            $('div.c-event[data-event-day="' + d + '"]').removeClass('c-event-over');
+            $('div.c-event[data-event-day="' + d + '"]').removeClass('c-event-over').css("color", tresctlo).css("background-color", przyciskikolor);
         };
         var nextMonth = function () {
             if (dMonth < 11) {
@@ -83,12 +83,12 @@
 
             var cBody = $('<div/>').addClass('c-grid');
             var cEvents = $('<div/>').addClass('c-event-grid');
-            var cEventsBody = $('<div/>').addClass('c-event-body');
-            cEvents.append($('<div/>').addClass('c-event-title c-pad-top').html(settings.eventTitle));
+            var cEventsBody = $('<div/>').addClass('c-event-body').css("background-color", tresctlo);
+            cEvents.append($('<div/>').addClass('c-event-title c-pad-top').html(settings.eventTitle)).css("background-color", naglowkikolor).css("color", tresctlo);
             cEvents.append(cEventsBody);
-            var cNext = $('<div/>').addClass('c-next c-grid-title c-pad-top');
-            var cMonth = $('<div/>').addClass('c-month c-grid-title c-pad-top');
-            var cPrevious = $('<div/>').addClass('c-previous c-grid-title c-pad-top');
+            var cNext = $('<div/>').addClass('c-next c-grid-title c-pad-top').css("background-color", naglowkikolor).css("color", tresctlo);
+            var cMonth = $('<div/>').addClass('c-month c-grid-title c-pad-top').css("background-color", naglowkikolor).css("color", tresctlo);
+            var cPrevious = $('<div/>').addClass('c-previous c-grid-title c-pad-top').css("background-color", naglowkikolor).css("color", tresctlo);
             cPrevious.html(settings.textArrows.previous);
             cMonth.html(settings.months[dMonth] + ' ' + dYear);
             cNext.html(settings.textArrows.next);
@@ -104,7 +104,7 @@
                 if (dayOfWeek > 6) {
                     dayOfWeek = 0;
                 }
-                var cWeekDay = $('<div/>').addClass('c-week-day c-pad-top');
+                var cWeekDay = $('<div/>').addClass('c-week-day c-pad-top').css("background-color", naglowkikolor).css("color", tresctlo);
                 cWeekDay.html(settings.weekDays[dayOfWeek]);
                 cBody.append(cWeekDay);
                 dayOfWeek++;
@@ -114,33 +114,33 @@
             for (var i = 0; i < 42; i++) {
                 var cDay = $('<div/>');
                 if (i < dWeekDayOfMonthStart) {
-                    cDay.addClass('c-day-previous-month c-pad-top');
+                    cDay.addClass('c-day-previous-month c-pad-top').css("background-color", tresctlo);
                     cDay.html(dLastDayOfPreviousMonth++);
                 } else if (day <= dLastDayOfMonth) {
-                    cDay.addClass('c-day c-pad-top');
+                    cDay.addClass('c-day c-pad-top').css("background-color", tresctlo);
                     if (day == dDay && adMonth == dMonth && adYear == dYear) {
-                        cDay.addClass('c-today');
+                        cDay.addClass('c-today').css("background-color", glownynaglowektlo).css("color", tresctlo);
                     }
                     for (var j = 0; j < settings.events.length; j++) {
                         var d = settings.events[j].datetime;
                         if (d.getDate() == day && d.getMonth() == dMonth && d.getFullYear() == dYear) {
-                            cDay.addClass('c-event').attr('data-event-day', d.getDate());
+                            cDay.addClass('c-event').attr('data-event-day', d.getDate()).css("background-color", przyciskikolor).css("color", tresctlo);
                             cDay.on('mouseover', mouseOverEvent).on('mouseleave', mouseLeaveEvent);
                         }
                     }
                     cDay.html(day++);
                 } else {
-                    cDay.addClass('c-day-next-month c-pad-top');
+                    cDay.addClass('c-day-next-month c-pad-top').css("background-color", tresctlo);
                     cDay.html(dayOfNextMonth++);
                 }
                 cBody.append(cDay);
             }
-            var eventList = $('<div/>').addClass('c-event-list');
+            var eventList = $('<div/>').addClass('c-event-list').css("background-color", tresctlo);
             for (var i = 0; i < settings.events.length; i++) {
                 var d = settings.events[i].datetime;
                 if (d.getMonth() == dMonth && d.getFullYear() == dYear) {
                     var date = lpad(d.getDate(), 2) + '/' + lpad(d.getMonth() + 1, 2) + ' ' + lpad(d.getHours(), 2) + ':' + lpad(d.getMinutes(), 2);
-                    var item = $('<div/>').addClass('c-event-item');
+                    var item = $('<div/>').addClass('c-event-item').css("color", tresctlo).css("background-color", przyciskikolor);
                     var title = $('<div/>').addClass('title').html(date + '  ' + settings.events[i].title + '<br/>');
                     var description = $('<div/>').addClass('description').html(settings.events[i].description + '<br/>');
                     item.attr('data-event-day', d.getDate());
