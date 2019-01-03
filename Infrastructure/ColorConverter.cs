@@ -27,7 +27,7 @@ namespace DluzynaSzkola2.Models
             return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
         }
         //z Color do HSV
-        public void ColorToHSV(Color color, out double hue, out double saturation, out double value)
+        public static void ColorToHSV(Color color, out double hue, out double saturation, out double value)
         {
             int max = Math.Max(color.R, Math.Max(color.G, color.B));
             int min = Math.Min(color.R, Math.Min(color.G, color.B));
@@ -37,7 +37,7 @@ namespace DluzynaSzkola2.Models
             value = max / 255d;
         }
         //z HSV do Color
-        public Color ColorFromHSV(double hue, double saturation, double value)
+        public static Color ColorFromHSV(double hue, double saturation, double value)
         {
             int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
             double f = hue / 60 - Math.Floor(hue / 60);
@@ -47,7 +47,10 @@ namespace DluzynaSzkola2.Models
             int p = Convert.ToInt32(value * (1 - saturation));
             int q = Convert.ToInt32(value * (1 - f * saturation));
             int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
-
+            if (v > 255) v = 255 - (v - 255);
+            if (q > 255) q = 255 - (q - 255);
+            if (t > 255) t = 255 - (t - 255);
+            if (p > 255) p = 255 - (p - 255);
             if (hi == 0)
                 return Color.FromArgb(255, v, t, p);
             else if (hi == 1)
