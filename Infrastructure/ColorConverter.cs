@@ -43,14 +43,11 @@ namespace DluzynaSzkola2.Models
             double f = hue / 60 - Math.Floor(hue / 60);
 
             value = value * 255;
+            if (value > 255) value = 255 - (value - 255);
             int v = Convert.ToInt32(value);
             int p = Convert.ToInt32(value * (1 - saturation));
             int q = Convert.ToInt32(value * (1 - f * saturation));
             int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
-            if (v > 255) v = 255 - (v - 255);
-            if (q > 255) q = 255 - (q - 255);
-            if (t > 255) t = 255 - (t - 255);
-            if (p > 255) p = 255 - (p - 255);
             if (hi == 0)
                 return Color.FromArgb(255, v, t, p);
             else if (hi == 1)
