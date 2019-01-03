@@ -58,16 +58,23 @@ namespace DluzynaSzkola2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Kontakt modelReturned)
         {
-            Kontakt dataBase = repository.Kontakts.FirstOrDefault();
-            dataBase.AdresUlica = modelReturned.AdresUlica;
-            dataBase.AdresMiastoKod = modelReturned.AdresMiastoKod;
-            dataBase.AdresWojewodztwo = modelReturned.AdresWojewodztwo;
-            dataBase.Phone = modelReturned.Phone;
-            dataBase.Email = modelReturned.Email;
-            dataBase.Fax = modelReturned.Fax;
-            dataBase.LinkGoogleMaps = modelReturned.LinkGoogleMaps;
-            repository.SaveKontakt(dataBase);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                Kontakt dataBase = repository.Kontakts.FirstOrDefault();
+                dataBase.AdresUlica = modelReturned.AdresUlica;
+                dataBase.AdresMiastoKod = modelReturned.AdresMiastoKod;
+                dataBase.AdresWojewodztwo = modelReturned.AdresWojewodztwo;
+                dataBase.Phone = modelReturned.Phone;
+                dataBase.Email = modelReturned.Email;
+                dataBase.Fax = modelReturned.Fax;
+                dataBase.LinkGoogleMaps = modelReturned.LinkGoogleMaps;
+                repository.SaveKontakt(dataBase);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View(modelReturned);
+            }
         }
     }
 }

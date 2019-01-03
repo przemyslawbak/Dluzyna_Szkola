@@ -67,4 +67,5 @@ corrected dropdown menu border styling bug, corrected 'feels like' temperature
 bug, added popups for admin buttons, updated styles of admin btns, secured @Html.Raw
 elements against XSS attacks
 03.01 - secured application against Path Traversal attacks, corrected layout's style,
-removing from controllers namespaces not in use,
+removing from controllers namespaces not in use, cleaning up unused namespaces and
+added validation to several models

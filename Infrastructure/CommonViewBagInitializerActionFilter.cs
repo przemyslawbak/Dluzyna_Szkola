@@ -1,15 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using DluzynaSzkola2.Controllers;
 
 namespace DluzynaSzkola2.Models
 {
-    //color info for JS plugins
+    //globalne info o kolorach, wysyłane przez ViewBag, zarejestrowane w Startup.cs
     public class CommonViewBagInitializerActionFilter : ActionFilterAttribute
     {
 

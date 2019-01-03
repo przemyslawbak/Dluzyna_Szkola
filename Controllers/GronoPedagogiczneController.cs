@@ -68,6 +68,10 @@ namespace DluzynaSzkola2.Controllers
                 }
                 repository.SaveGrono(editedPerson);
             }
+            else
+            {
+                return View(editedPerson);
+            }
             return RedirectToAction(nameof(Index));
         }
 

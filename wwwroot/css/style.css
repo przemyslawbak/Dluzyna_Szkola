@@ -13,7 +13,6 @@
     position: relative;
     height: 170px;
 }
-
 .obrazNaglowka {
     position: absolute;
     height: 150px;
@@ -25,12 +24,10 @@
     padding-bottom: 10px;
     font-size: 0.7em;
 }
-
 .down:link, .down:active, .down:visited {
     font-weight: bold;
     text-decoration: none !important;
 }
-
 .down:hover {
     font-weight: bold;
     text-decoration: underline !important;
@@ -71,7 +68,6 @@
     height: 68px;
     z-index: 2;
 }
-
 .p5edziennik { /*p5edziennik ZAGNIEŻDŻONE W HEADING*/
     margin-top: 170px;
     position: relative;
@@ -84,13 +80,11 @@
     border-style: solid;
     border-width: 1px;
 }
-
 .adminBtn {
     margin-left: 10px;
     margin-top: 20px;
     margin-bottom: -20px;
 }
-
 .hyperPaging {
     text-align: left;
     height: 20px;
@@ -98,25 +92,21 @@
     position: relative;
     padding: 30px;
 }
-
 .tagStyle {
     margin-right: 5px;
     color: white !important;
     padding-left: 5px;
     padding-right: 5px;
 }
-
     .tagStyle:hover {
         box-shadow: 0 5px 20px #000000;
     }
-
 .tagThisStyle {
     margin-right: 5px;
     color: white !important;
     padding-left: 5px;
     padding-right: 5px;
 }
-
 .richText-btn span {
 }
 /*SLIDE*/
@@ -125,7 +115,6 @@
     background-position: center top;
     background-size: cover;
 }
-
 .slideshow {
     height: 172px;
     position: relative;
@@ -133,11 +122,9 @@
     left: 50%;
     width: 50%;
 }
-
 a { /* WŁAŚCIWOŚCI "a"*/
     text-decoration: none !important;
 }
-
     a span {
     }
 /*ANIMACJE MENU*/
@@ -145,11 +132,9 @@ a { /* WŁAŚCIWOŚCI "a"*/
     z-index: 1;
     box-shadow: 0 15px 30px #000000;
 }
-
 .najazdMenu {
     z-index: 99999;
 }
-
 .dropdown div {
     z-index: 1;
     font-size: 0.8em;
@@ -160,7 +145,6 @@ a { /* WŁAŚCIWOŚCI "a"*/
     border-width: thin;
     line-height: 30px;
 }
-
 .kontenerDodatkiLayout {
     position: absolute;
     top: 350px;
@@ -169,7 +153,6 @@ a { /* WŁAŚCIWOŚCI "a"*/
     right: -15px;
     font-size: 0.6em;
 }
-
 .archiwum {
     font-size: 1em;
     line-height: 30px;
@@ -189,7 +172,6 @@ a { /* WŁAŚCIWOŚCI "a"*/
     float: left;
     font-size: 0.8em;
 }
-
 .tytulStrony {
     font-size: 1.2em;
     line-height: 30px;
@@ -199,17 +181,14 @@ a { /* WŁAŚCIWOŚCI "a"*/
     box-shadow: 0 5px 20px #000000;
     z-index: -9999;
 }
-
 .kontenerWpisow {
     margin-top: 30px;
 }
-
 .kontenerWpisu {
     margin-top: 10px;
     height: 242px;
     box-shadow: 0 5px 20px #000000;
 }
-
 .tytulWpisu {
     height: 70px;
     font-size: 1.2em;
@@ -217,34 +196,29 @@ a { /* WŁAŚCIWOŚCI "a"*/
     text-align: left;
     overflow: hidden;
 }
-
 .tytulAdmin {
     height: 40px;
     font-size: 1em;
     text-align: left;
     overflow: hidden;
 }
-
 .trescWpisu {
     height: 142px;
     overflow: hidden;
     font-size: 0.75em;
 }
-
 .zdjecieWpisu {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 242px;
 }
-
 .dataWpisu {
     height: 30px;
     line-height: 30px;
     font-weight: bold;
     font-size: 0.8em;
 }
-
 .dalejWpisu {
     z-index: 1;
     height: 30px;
@@ -256,28 +230,22 @@ a { /* WŁAŚCIWOŚCI "a"*/
     border-width: 1px;
     font-size: 0.8em;
 }
-
-
 .dalejButton:hover {
     z-index: 2;
 }
-
 .shift {
     margin-left: 10px !important;
 }
-
 .center {
     text-align: center;
     margin: 5px;
 }
-
 .stronaPaging {
     height: 30px;
     line-height: 30px;
     width: 90px;
     text-align: center;
 }
-
 .editAktualnosciImage {
     width: 30vw;
 }
@@ -286,7 +254,6 @@ a { /* WŁAŚCIWOŚCI "a"*/
     min-height: 370px;
     box-shadow: 0 35px 20px #000000;
 }
-
 .tytulDetails {
     height: 70px;
     font-size: 1.2em;
@@ -294,13 +261,11 @@ a { /* WŁAŚCIWOŚCI "a"*/
     text-align: center;
     overflow: hidden;
 }
-
 .trescDetails {
     font-size: 0.75em;
     margin-right: 10px;
     min-height: 340px;
 }
-
 .zdjecieDetails {
     height: 300px;
     background-repeat: no-repeat;
@@ -309,14 +274,12 @@ a { /* WŁAŚCIWOŚCI "a"*/
     margin-right: 20px;
     padding-bottom: 10px;
 }
-
 .dataDetails {
     height: 30px;
     line-height: 30px;
     font-weight: bold;
     font-size: 0.8em;
 }
-
 .dalejDetails {
     z-index: 1;
     height: 30px;
@@ -324,7 +287,6 @@ a { /* WŁAŚCIWOŚCI "a"*/
     text-align: center;
     overflow: hidden;
 }
-
 .pasekLogowania {
     position: center;
     width: 100%;
@@ -333,17 +295,14 @@ a { /* WŁAŚCIWOŚCI "a"*/
     padding-right: 20px;
     font-size: 0.8em;
 }
-
 .wpisDodatki {
     margin-top: 30px;
     box-shadow: 0 5px 20px #000000;
 }
-
     .wpisDodatki:link {
         text-decoration: none;
         color: pink;
     }
-
 .stopa {
     position: fixed;
     bottom: 0;
@@ -356,37 +315,29 @@ a { /* WŁAŚCIWOŚCI "a"*/
     overflow: hidden;
     font-size: 0.6em;
 }
-
 .myLink a:link, .myLink a:active, .myLink a:visited {
     text-decoration: none;
 }
-
 .myLink a:hover {
     text-decoration: underline !important;
 }
-
 .myLink {
     font-size: 0.8em;
 }
-
 .space {
     padding-bottom: 90px;
 }
-
 .spaceSide {
     padding-bottom: 30px;
 }
-
 .przyciskiAdmina {
     position: absolute;
     top: 270px;
     left: 10px;
     padding-bottom: 20px;
 }
-
 .tabela {
 }
-
 .makeTresc {
 }
 /*SIDEBAR FOR LAYOUT*/
@@ -395,18 +346,15 @@ a { /* WŁAŚCIWOŚCI "a"*/
     width: 92%;
     height: 100%;
 }
-
 .archiwumHeader {
     line-height: 35px;
     text-align: center;
     height: 35px;
 }
-
 .archiwumLink:link, .archiwumLink:active, .archiwumLink:visited {
     overflow: hidden;
     margin-left: 10px;
 }
-
 .archiwumLink:hover {
     font-weight: bold;
     overflow: hidden;
@@ -415,7 +363,6 @@ a { /* WŁAŚCIWOŚCI "a"*/
 actionLink:link, actionLink:visited, actionLink:active {
     text-decoration: none;
 }
-
 .navBtn {
     height: 60px;
     width: 100%;
@@ -423,42 +370,34 @@ actionLink:link, actionLink:visited, actionLink:active {
     position: relative;
     left: -10px;
 }
-
 .gmina {
     background: url(../img/buttons/gmina.png) no-repeat 6px center;
     background-size: cover;
 }
-
 .men {
     background: url(../img/buttons/men.png) no-repeat 6px center;
     background-size: cover;
 }
-
 .oke {
     background: url(../img/buttons/oke.png) no-repeat 6px center;
     background-size: cover;
 }
-
 .kuratorium {
     background: url(../img/buttons/kuratorium.png) no-repeat 6px center;
     background-size: cover;
 }
-
 .poradnia {
     background: url(../img/buttons/gora_01.png) no-repeat 6px center;
     background-size: cover;
 }
-
 .zawody {
     background: url(../img/buttons/logo_top_1.jpg) no-repeat 6px center;
     background-size: cover;
 }
-
 .reforma {
     background: url(../img/buttons/reforma.png) no-repeat 6px center;
     background-size: cover;
 }
-
 .ore {
     background: url(../img/buttons/ore.png) no-repeat 6px center;
     background-size: cover;
@@ -474,12 +413,10 @@ actionLink:link, actionLink:visited, actionLink:active {
     margin-top: 30px;
     margin-bottom: 20px;
 }
-
 .kontenerOsoby {
     margin-top: 30px;
     box-shadow: 0 5px 20px #000000;
 }
-
 .nazwiskoOsoby {
     height: 70px;
     font-size: 1em;
@@ -488,7 +425,6 @@ actionLink:link, actionLink:visited, actionLink:active {
     overflow: hidden;
     padding-left: 10px;
 }
-
 .funkcjeOsoby {
     font-size: 0.8em;
     height: 70px;
@@ -506,20 +442,16 @@ actionLink:link, actionLink:visited, actionLink:active {
     font-size: 1em;
     width: auto;
 }
-
     .dalejSukcesy:hover {
         box-shadow: 0 5px 20px #000000;
     }
-
 .calendar {
     margin-bottom: 50px;
 }
-
 #calendar {
     box-shadow: 0 5px 20px #000000;
     width: 95%;
 }
-
 #calendarr {
     width: 100%;
     height: 100%;
@@ -534,7 +466,6 @@ actionLink:link, actionLink:visited, actionLink:active {
         margin-top: 30px;
     }
 }
-
 @media screen and (max-width:992px) {
     .caloscWidoku {
         margin-left: 0;
@@ -565,36 +496,29 @@ actionLink:link, actionLink:visited, actionLink:active {
     .p5edziennik {
         margin-top: 234px;
     }
-
     .pasekCieniaHeader {
         top: 30px;
         height: 304px;
     }
-
     .slideshow {
         display: none !important;
     }
-
     .tytulStrony {
         margin-right: 0 !important;
         height: 35px;
     }
-
     .kontenerWpisow {
         margin-top: 30px !important;
     }
-
     .msgKomputer {
         visibility: hidden;
         margin-bottom: -60px;
     }
 }
-
 @media screen and (max-width:770px) {
     .tytulWpisu {
         text-align: center !important;
     }
-
     .obrazNaglowka {
         position: absolute;
         margin: auto;
@@ -603,12 +527,10 @@ actionLink:link, actionLink:visited, actionLink:active {
         right: 0;
         bottom: 0;
     }
-
     .kontenerDetails {
         min-height: 0;
     }
 }
-
 @media screen and (max-width:576px) {
     .obrazNaglowka {
         position: absolute;
@@ -619,34 +541,27 @@ actionLink:link, actionLink:visited, actionLink:active {
         bottom: 0;
         height: 60%;
     }
-
     .tytulWpisu {
         text-align: center !important;
     }
-
     .menuFont {
         font-size: 14px;
     }
-
     .nazwiskoOsoby {
         font-size: 14px;
         height: 40px;
         line-height: 40px;
     }
-
     .dalejButton {
         font-size: 14px;
     }
-
     .funkcjeOsoby {
         font-size: 14px;
     }
-
     .stopa {
         height: 68px;
     }
 }
-
 @media all and (min-width: 48em) {
     .slideshow {
         height: 171px;

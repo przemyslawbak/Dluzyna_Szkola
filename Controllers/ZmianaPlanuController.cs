@@ -47,28 +47,38 @@ namespace DluzynaSzkola2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ZmianaPlanu modelReturned, List<IFormFile> files)
         {
-            ZmianaPlanu dataBase = repository.ZmianaPlanus.FirstOrDefault();
-            dataBase.Info = modelReturned.Info;
-            dataBase.DzienRozpoczęcia = modelReturned.DzienRozpoczęcia;
-            dataBase.DzienZakonczenia = modelReturned.DzienZakonczenia;
-            repository.SaveZmianaPlanu(dataBase);
-            if (files != null)
+            if (ModelState.IsValid)
             {
-                long size = files.Sum(f => f.Length);
-                var filePath = "";
-                foreach (var formFile in files)
+                ZmianaPlanu dataBase = repository.ZmianaPlanus.FirstOrDefault();
+                dataBase.Info = modelReturned.Info;
+                dataBase.DzienRozpoczęcia = modelReturned.DzienRozpoczęcia;
+                dataBase.DzienZakonczenia = modelReturned.DzienZakonczenia;
+                repository.SaveZmianaPlanu(dataBase);
+                if (files != null)
                 {
-                    filePath = Path.Combine(fileDirectory, formFile.FileName);
-                    if (formFile.Length > 0)
+                    long size = files.Sum(f => f.Length);
+                    var filePath = "";
+                    foreach (var formFile in files)
                     {
-                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        filePath = Path.Combine(fileDirectory, formFile.FileName);
+                        if (formFile.Length > 0)
                         {
-                            await formFile.CopyToAsync(stream);
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await formFile.CopyToAsync(stream);
+                            }
                         }
                     }
                 }
+                return RedirectToAction("Index", "Aktualnosci");
             }
-            return RedirectToAction("Index", "Aktualnosci");
+            else
+            {
+                ViewBag.fileList = Directory
+                .EnumerateFiles(fileDirectory, "*", SearchOption.AllDirectories)
+                .Select(Path.GetFileName);
+                return View(modelReturned);
+            }
         }
         public ActionResult Download(string file)
         {

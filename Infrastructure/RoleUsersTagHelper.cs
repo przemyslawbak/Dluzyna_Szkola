@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DluzynaSzkola2.Infrastructure
 {
+    //wysyła info o rolach
     [HtmlTargetElement("td", Attributes = "identity-role")]
     public class RoleUsersTagHelper : TagHelper
     {

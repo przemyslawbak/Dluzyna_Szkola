@@ -7,6 +7,7 @@ using DluzynaSzkola2.Models.ViewModels;
 
 namespace DluzynaSzkola2.Infrastructure
 {
+    //wysyła do widoku Index Aktualności paginację
     [HtmlTargetElement("span", Attributes = "page-model")]
     public class PageLinkTagHelper : TagHelper
     {

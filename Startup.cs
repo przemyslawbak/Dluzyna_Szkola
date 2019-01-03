@@ -26,7 +26,7 @@ namespace DluzynaSzkola2
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
             Configuration["Data:DluzynaSzkolaApp:ConnectionString"]));
-            //repositories
+            //repozytoria
             services.AddTransient<IAktualnosciRepository, EFAktualnosciRepository>();
             services.AddTransient<IHistoriaRepository, EFHistoriaRepository>();
             services.AddTransient<IDokumentyRepository, EFDokumentyRepository>();
@@ -52,22 +52,22 @@ namespace DluzynaSzkola2
             options.UseSqlServer(
             Configuration["Data:DluzynaSzkolaIdentity:ConnectionString"]));
             services.AddIdentity<AppUser, IdentityRole>(opts => {
-                //password requirements options
+                //wymagania dla hasła
                 opts.Password.RequiredLength = 6;
                 opts.Password.RequireNonAlphanumeric = false;
                 opts.Password.RequireLowercase = false;
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<AppIdentityDbContext>()
-            //generates tokens for passwords
+            //tokeny autentykacji dla JS
             .AddDefaultTokenProviders();
             services.Configure<SecurityStampValidatorOptions>(options => options.ValidationInterval = TimeSpan.FromSeconds(10));
             services.AddAuthentication()
             .Services.ConfigureApplicationCookie(options =>
                 {
-                    //delay logoff when processed
+                    //nieważne ciasteczka
                     options.SlidingExpiration = true;
-                    //logoff after 30min
+                    //po jakim czasie wylogowuje 30min
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                 });
             services.AddMvc(config =>
@@ -80,21 +80,21 @@ namespace DluzynaSzkola2
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            //authentication when routing
+            //autentykacja
             app.UseAuthentication();
             //exceptions and error page
-            //if (env.IsDevelopment())
-            //{
+            if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Error");
-            //}
-            //for wwwroot
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
+            //wwwroot
             app.UseStaticFiles();
-            //routing options
+            //opcje routingu
             app.UseMvc(routes => {
                 routes.MapRoute(name: "Error", template: "Error",
                 defaults: new { controller = "Error", action = "Error" });

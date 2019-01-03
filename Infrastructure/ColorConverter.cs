@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DluzynaSzkola2.Models
 {
+    //konwertuje kolory dla StylingTagHelper
     public class ColorConverts
     {
         public string Konwertuj (string pobranyKolor, double procentyV)
@@ -16,16 +14,19 @@ namespace DluzynaSzkola2.Models
             double value;
             string oddajKolor = "";
             int argb = int.Parse(pobranyKolor.Replace("#", ""), NumberStyles.HexNumber);
+            //z HEX do Color
             Color staryKolor = Color.FromArgb(argb);
             ColorToHSV(staryKolor, out hue, out saturation, out value);
             Color nowyKolor = ColorFromHSV(hue, saturation, value + procentyV);
             oddajKolor = HexConverter(nowyKolor);
             return oddajKolor;
         }
+        //z Color do HEX
         private static string HexConverter(Color c)
         {
             return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
         }
+        //z Color do HSV
         public void ColorToHSV(Color color, out double hue, out double saturation, out double value)
         {
             int max = Math.Max(color.R, Math.Max(color.G, color.B));
@@ -35,7 +36,7 @@ namespace DluzynaSzkola2.Models
             saturation = (max == 0) ? 0 : 1d - (1d * min / max);
             value = max / 255d;
         }
-
+        //z HSV do Color
         public Color ColorFromHSV(double hue, double saturation, double value)
         {
             int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;

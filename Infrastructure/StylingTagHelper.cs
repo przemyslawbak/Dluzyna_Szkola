@@ -1,12 +1,10 @@
 ﻿using DluzynaSzkola2.Models;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DluzynaSzkola2.Infrastructure
 {
+    //wysyła do widoków style
     [HtmlTargetElement(Attributes = DarkFilter)]
     [HtmlTargetElement(Attributes = CustomBorderColor)]
     [HtmlTargetElement(Attributes = CustomTextColor)]

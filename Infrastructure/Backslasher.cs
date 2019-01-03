@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DluzynaSzkola2.Infrastructure
 {
+    //dodaje backslash do ścieżki
     public class Backslasher
     {
         public string PathAddBackslash(string path)
