@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DluzynaSzkola2.Models;
-using Microsoft.EntityFrameworkCore;
 using DluzynaSzkola2.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;

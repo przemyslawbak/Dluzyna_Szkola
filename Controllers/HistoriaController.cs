@@ -7,16 +7,21 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.Security.Application;
+using DluzynaSzkola2.Infrastructure;
+using System;
 
 namespace DluzynaSzkola2.Controllers
 {
     //no repo used
     public class HistoriaController: Controller
     {
+        Backslasher bck = new Backslasher();
+        private readonly string fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploaded", "hist");
         private IHistoriaRepository repository;
         public HistoriaController(IHistoriaRepository repo)
         {
             repository = repo; //repository
+            fileDirectory = bck.PathAddBackslash(fileDirectory);
         }
         public ActionResult Index()
         {
@@ -29,8 +34,6 @@ namespace DluzynaSzkola2.Controllers
                 };
                 repository.SaveHistoria(dataBase);
             }
-            string fileDirectory = Path.Combine(
-                      Directory.GetCurrentDirectory(), "wwwroot/uploaded/hist/");
             bool exists = Directory.Exists(fileDirectory);
             if (exists == false) Directory.CreateDirectory(fileDirectory);
             ViewBag.fileList = Directory
@@ -52,8 +55,6 @@ namespace DluzynaSzkola2.Controllers
                 };
                 repository.SaveHistoria(dataBase);
             }
-            string fileDirectory = Path.Combine(
-                      Directory.GetCurrentDirectory(), "wwwroot/uploaded/hist/");
             ViewBag.fileList = Directory
                 .EnumerateFiles(fileDirectory, "*", SearchOption.AllDirectories)
                 .Select(Path.GetFileName);
@@ -75,9 +76,7 @@ namespace DluzynaSzkola2.Controllers
                 var filePath = "";
                 foreach (var formFile in files)
                 {
-                    filePath = Path.Combine(
-                      Directory.GetCurrentDirectory(), "wwwroot/uploaded/hist/",
-                      formFile.FileName);
+                    filePath = Path.Combine(fileDirectory, formFile.FileName);
                     if (formFile.Length > 0)
                     {
                         using (var stream = new FileStream(filePath, FileMode.Create))
@@ -91,32 +90,45 @@ namespace DluzynaSzkola2.Controllers
         }
         public ActionResult Download(string file)
         {
-            if (!System.IO.File.Exists(file))
+            bool match = false;
+            string[] files = Directory.GetFiles(fileDirectory, "*", SearchOption.AllDirectories);
+            foreach (string item in files)
             {
-                return NotFound();
+                if (item == file) match = true;
             }
-
-            var fileBytes = System.IO.File.ReadAllBytes(file);
-            var response = new FileContentResult(fileBytes, "application/octet-stream")
+            if (match)
             {
-                FileDownloadName = file.Split('/').Last()
-            };
-            return response;
+                if (System.IO.File.Exists(file) && Path.GetFullPath(file).StartsWith(fileDirectory, StringComparison.OrdinalIgnoreCase))
+                {
+                    var fileBytes = System.IO.File.ReadAllBytes(file);
+                    var response = new FileContentResult(fileBytes, "application/octet-stream")
+                    {
+                        FileDownloadName = file.Split('\\').Last()
+                    };
+                    return response;
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
         [Authorize(Roles = "Moderatorzy, Administratorzy")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteFile(string file)
         {
-            string fileDirectory = Path.Combine(
-                      Directory.GetCurrentDirectory(), "wwwroot/uploaded/hist/");
             ViewBag.fileList = Directory
                 .EnumerateFiles(fileDirectory, "*", SearchOption.AllDirectories)
                 .Select(Path.GetFileName);
             ViewBag.fileDirectory = fileDirectory;
             var fileName = "";
             fileName = file;
-            var fullPath = fileDirectory + file;
+            var fullPath = Path.Combine(fileDirectory, file);
 
             if (System.IO.File.Exists(fullPath))
             {

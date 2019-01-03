@@ -9,7 +9,6 @@
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\img\pictures\" />
     <Folder Include="wwwroot\uploaded\hist\" />
-    <Folder Include="wwwroot\uploaded\bus\" />
     <Folder Include="wwwroot\uploaded\plan\" />
     <Folder Include="wwwroot\uploaded\zaj\" />
   </ItemGroup>

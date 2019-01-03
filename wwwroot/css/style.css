@@ -38,10 +38,10 @@
 /*PASEK CIENIA*/
 .pasekCieniaHeader {
     position: absolute;
-    height: 180px;
+    height: 239px;
     width: 100%;
     box-shadow: 0 15px 30px #000000;
-    top: 79px;
+    top: 30px;
 }
 /* PRZYCISKI*/
 .przycisk {
@@ -567,7 +567,8 @@ actionLink:link, actionLink:visited, actionLink:active {
     }
 
     .pasekCieniaHeader {
-        top: 142px;
+        top: 30px;
+        height: 304px;
     }
 
     .slideshow {

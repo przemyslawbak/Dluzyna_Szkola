@@ -10,11 +10,6 @@
     <form asp-action="Edit" method="post" asp-antiforgery="true">
         <input type="hidden" asp-for="ID" />
         <div class="form-group">
-            <label asp-for="Zdjecie">Link do zdjęcia</label>
-            <div><span asp-validation-for="Zdjecie" class="text-danger"></span></div>
-            <input asp-for="Zdjecie" class="form-control" />
-        </div>
-        <div class="form-group">
             <label asp-for="Imie">Imię osoby</label>
             <div><span asp-validation-for="Imie" class="text-danger"></span></div>
             <input asp-for="Imie" class="form-control" />

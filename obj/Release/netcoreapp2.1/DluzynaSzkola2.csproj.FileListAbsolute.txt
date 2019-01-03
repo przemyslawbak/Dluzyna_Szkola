@@ -33,3 +33,4 @@ C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Web
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.AssemblyInfo.cs
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\DluzynaSzkola2.pdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\DluzynaSzkola\ASP.NET Core - Webio\Dluzyna_Szkola_2\BasicConfig\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
