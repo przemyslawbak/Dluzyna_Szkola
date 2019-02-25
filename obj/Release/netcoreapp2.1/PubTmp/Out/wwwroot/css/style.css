@@ -19,6 +19,20 @@
     left: 40px;
     top: 10px;
 }
+.obrazNaglowkas {
+    position: absolute;
+    height: 150px;
+    left: 40px;
+    top: 10px;
+    visibility: hidden;
+}
+.obrazGodla {
+    position: absolute;
+    height: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+}
 .paddingDownload
 {
     padding-bottom: 10px;
@@ -119,8 +133,14 @@
     height: 172px;
     position: relative;
     top: 68px;
-    left: 50%;
-    width: 50%;
+    left: 41.66%;
+    width: 48%;
+}
+.godloKontener {
+    float: left;
+    position: relative;
+    height: 239px;
+    width: 9.33333333%;
 }
 a { /* WŁAŚCIWOŚCI "a"*/
     text-decoration: none !important;
@@ -357,10 +377,10 @@ actionLink:link, actionLink:visited, actionLink:active {
 }
 .navBtn {
     height: 60px;
-    width: 100%;
+    width: 130%;
     padding: 0 !important;
     position: relative;
-    left: -10px;
+    left: -8px;
 }
 .gmina {
     background: url(../img/buttons/gmina.png) no-repeat 6px center;
@@ -459,6 +479,23 @@ actionLink:link, actionLink:visited, actionLink:active {
     }
 }
 @media screen and (max-width:992px) {
+    .obrazNaglowka
+    {
+        visibility: hidden;
+    }
+    .obrazNaglowkas {
+        visibility: visible;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .godloKontener
+    {
+        visibility: hidden;
+    }
     .caloscWidoku {
         margin-left: 0;
     }
@@ -518,6 +555,16 @@ actionLink:link, actionLink:visited, actionLink:active {
         left: 0;
         right: 0;
         bottom: 0;
+        visibility: hidden;
+    }
+    .obrazNaglowkas {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        visibility: visible;
     }
     .kontenerDetails {
         min-height: 0;
@@ -532,6 +579,17 @@ actionLink:link, actionLink:visited, actionLink:active {
         right: 0;
         bottom: 0;
         height: 60%;
+        visibility: hidden;
+    }
+    .obrazNaglowkas {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 60%;
+        visibility: visible;
     }
     .tytulWpisu {
         text-align: center !important;

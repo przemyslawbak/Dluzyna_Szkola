@@ -69,3 +69,4 @@ elements against XSS attacks
 03.01 - secured application against Path Traversal attacks, corrected layout's style,
 removing from controllers namespaces not in use, cleaning up unused namespaces and
 added validation to several models, corrected ColorConverter bug
+25.02 - updated Layout`s header according to requirements

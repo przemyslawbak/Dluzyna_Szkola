@@ -485,6 +485,12 @@ actionLink:link, actionLink:visited, actionLink:active {
     }
     .obrazNaglowkas {
         visibility: visible;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
     .godloKontener
     {
