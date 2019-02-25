@@ -83,15 +83,15 @@ namespace DluzynaSzkola2
             //autentykacja
             app.UseAuthentication();
             //exceptions and error page
-            //if (env.IsDevelopment())
-            //{
+            if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Error");
-            //}
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
             //wwwroot
             app.UseStaticFiles();
             //opcje routingu

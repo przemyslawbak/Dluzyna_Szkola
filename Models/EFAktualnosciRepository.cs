@@ -5,6 +5,7 @@ namespace DluzynaSzkola2.Models
 {
     public class EFAktualnosciRepository : IAktualnosciRepository
     {
+        double sample = 1.0;
         private ApplicationDbContext _context;
         public EFAktualnosciRepository(ApplicationDbContext ctx)
         {
