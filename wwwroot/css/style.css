@@ -19,6 +19,13 @@
     left: 40px;
     top: 10px;
 }
+.obrazNaglowkas {
+    position: absolute;
+    height: 150px;
+    left: 40px;
+    top: 10px;
+    visibility: hidden;
+}
 .obrazGodla {
     position: absolute;
     height: 150px;
@@ -472,6 +479,13 @@ actionLink:link, actionLink:visited, actionLink:active {
     }
 }
 @media screen and (max-width:992px) {
+    .obrazNaglowka
+    {
+        visibility: hidden;
+    }
+    .obrazNaglowkas {
+        visibility: visible;
+    }
     .godloKontener
     {
         visibility: hidden;
@@ -535,6 +549,16 @@ actionLink:link, actionLink:visited, actionLink:active {
         left: 0;
         right: 0;
         bottom: 0;
+        visibility: hidden;
+    }
+    .obrazNaglowkas {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        visibility: visible;
     }
     .kontenerDetails {
         min-height: 0;
@@ -549,6 +573,17 @@ actionLink:link, actionLink:visited, actionLink:active {
         right: 0;
         bottom: 0;
         height: 60%;
+        visibility: hidden;
+    }
+    .obrazNaglowkas {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 60%;
+        visibility: visible;
     }
     .tytulWpisu {
         text-align: center !important;
