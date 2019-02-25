@@ -122,46 +122,48 @@
                 </div>
             }
             <!--dodatki i pluginy z prwej strony-->
-            <div class="kontenerDodatkiLayout hidden-xs hidden-sm" customfilter="yes">
-                <!--zmiana planu-->
-                @if (User?.Identity?.IsAuthenticated ?? false)
-                {
-                    <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-primary">Dodaj/Edytuj komunikat specjalny</a>
-                }
-                <div style="margin-top: 0;">@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
-                <div class="dodatekKontener" style="margin-top: 10px;">
-                    <!--kalendarz-->
-                    <!--https://www.jqueryscript.net/time-clock/Mini-Event-Calendar-Plugin-jQuery.html-->
-                    <div id="calendarr"></div>
-                </div>
-                <!--pogoda-->
-                <div class="dodatekKontener" style="margin-top: 30px;">
-                    <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
-                        Pogoda - Dłużyna, @DateTime.Now.ToShortDateString()
+                <div class="kontenerDodatkiLayout hidden-xs hidden-sm" customfilter="yes">
+                    <!--zmiana planu-->
+                    @if (User?.Identity?.IsAuthenticated ?? false)
+                    {
+                        <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-primary">Dodaj/Edytuj komunikat specjalny</a>
+                    }
+                    <div style="margin-top: 0;">@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
+                    <div class="dodatekKontener" style="margin-top: 10px;">
+                        <!--kalendarz-->
+                        <!--https://www.jqueryscript.net/time-clock/Mini-Event-Calendar-Plugin-jQuery.html-->
+                        <div id="calendarr"></div>
                     </div>
-                    <div id="weather" class="weatherColor"></div>
-                    <span style="visibility: hidden">test</span>
+                    <!--pogoda-->
+                    <!--
+    <div class="dodatekKontener" style="margin-top: 30px;">
+        <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
+            Pogoda - Dłużyna, @DateTime.Now.ToShortDateString()
+        </div>
+        <div id="weather" class="weatherColor"></div>
+        <span style="visibility: hidden">test</span>
+    </div>
+    <br />
+    -->
+                    <div>
+                        <!--ostatnie wpisy-->
+                        @await Component.InvokeAsync(nameof(AktualnosciArchiwum))
+                    </div>
+                    <br />
+                    <!--solectwo-->
+                    <div class="dodatekKontener" style="height: 30px;">
+                        <a asp-action="Index" asp-controller="Solectwo" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombordercolor="tresctlo" customtextcolor="tekstnaglowkow">Sołectwo ></a>
+                    </div>
+                    <br />
+                    <!--stara strona-->
+                    <div class="dodatekKontener" style="height: 30px;">
+                        <a href="http://dluzyna.pl/index.php" target="_blank" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombordercolor="tresctlo" customtextcolor="tekstnaglowkow">Stara Strona ></a>
+                    </div>
+                    <br />
+                    <!--info o mnie-->
+                    <div class="center myLink" customtextcolor="tresckolor">Design & code: <a href="http://przemyslaw-bak.pl/" target="_blank" customtextcolor="tresckolor">przemyslaw-bak.pl</a></div>
+                    <div class="space"></div>
                 </div>
-                <br />
-                <div>
-                    <!--ostatnie wpisy-->
-                    @await Component.InvokeAsync(nameof(AktualnosciArchiwum))
-                </div>
-                <br />
-                <!--solectwo-->
-                <div class="dodatekKontener" style="height: 30px;">
-                    <a asp-action="Index" asp-controller="Solectwo" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombordercolor="tresctlo" customtextcolor="tekstnaglowkow">Sołectwo ></a>
-                </div>
-                <br />
-                <!--stara strona-->
-                <div class="dodatekKontener" style="height: 30px;">
-                    <a href="http://dluzyna.pl/index.php" target="_blank" class="dalejButton dalejWpisu col-md-12" style="font-size: 24px;" custombordercolor="tresctlo" customtextcolor="tekstnaglowkow">Stara Strona ></a>
-                </div>
-                <br />
-                <!--info o mnie-->
-                <div class="center myLink" customtextcolor="tresckolor">Design & code: <a href="http://przemyslaw-bak.pl/" target="_blank" customtextcolor="tresckolor">przemyslaw-bak.pl</a></div>
-                <div class="space"></div>
-            </div>
         </div>
         <div>
             @RenderBody()
