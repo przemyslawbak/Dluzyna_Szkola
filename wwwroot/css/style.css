@@ -19,6 +19,13 @@
     left: 40px;
     top: 10px;
 }
+.obrazGodla {
+    position: absolute;
+    height: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+}
 .paddingDownload
 {
     padding-bottom: 10px;
@@ -120,7 +127,13 @@
     position: relative;
     top: 68px;
     left: 41.66%;
-    width: 50%;
+    width: 48%;
+}
+.godloKontener {
+    float: left;
+    position: relative;
+    height: 239px;
+    width: 9.33333333%;
 }
 a { /* WŁAŚCIWOŚCI "a"*/
     text-decoration: none !important;
@@ -357,10 +370,10 @@ actionLink:link, actionLink:visited, actionLink:active {
 }
 .navBtn {
     height: 60px;
-    width: 100%;
+    width: 130%;
     padding: 0 !important;
     position: relative;
-    left: -10px;
+    left: -8px;
 }
 .gmina {
     background: url(../img/buttons/gmina.png) no-repeat 6px center;
@@ -459,6 +472,10 @@ actionLink:link, actionLink:visited, actionLink:active {
     }
 }
 @media screen and (max-width:992px) {
+    .godloKontener
+    {
+        visibility: hidden;
+    }
     .caloscWidoku {
         margin-left: 0;
     }
