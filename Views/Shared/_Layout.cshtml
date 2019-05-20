@@ -123,12 +123,19 @@
             }
             <!--dodatki i pluginy z prwej strony-->
                 <div class="kontenerDodatkiLayout hidden-xs hidden-sm" customfilter="yes">
-                    <!--zmiana planu-->
-                    @if (User?.Identity?.IsAuthenticated ?? false)
-                    {
-                        <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-primary">Dodaj/Edytuj komunikat specjalny</a>
-                    }
-                    <div style="margin-top: 0;">@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
+                    <!--BIP-->
+                    <div class="dodatekKontener">
+                        <a href="http://bip.wloszakowice.pl/" target="_blank"><img class="bip" src="~/img/layout/bip.png" /></a>
+                    </div>
+                    <br />
+                    <div>
+                        <!--zmiana planu-->
+                        @if (User?.Identity?.IsAuthenticated ?? false)
+                        {
+                            <a asp-action="Edit" asp-controller="ZmianaPlanu" class="btn btn-primary">Dodaj/Edytuj komunikat specjalny</a>
+                        }
+                        <div>@await Component.InvokeAsync(nameof(ZmianaDisplay))</div>
+                    </div>
                     <div class="dodatekKontener" style="margin-top: 10px;">
                         <!--kalendarz-->
                         <!--https://www.jqueryscript.net/time-clock/Mini-Event-Calendar-Plugin-jQuery.html-->
@@ -136,16 +143,17 @@
                     </div>
                     <!--pogoda-->
                     <!-- https://github.com/monkeecreate/jquery.simpleWeather/issues/308 <--check this out
-    <div class="dodatekKontener" style="margin-top: 30px;">
-        <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
-            Pogoda - Dłużyna, @DateTime.Now.ToShortDateString()
-        </div>
-        <div id="weather" class="weatherColor"></div>
-        <span style="visibility: hidden">test</span>
-    </div>
-    <br />
-    -->
-                    <div>
+                        <div class="dodatekKontener" style="margin-top: 30px;">
+                            <div class="archiwumHeader" customtextcolor="tekstnaglowkow">
+                                Pogoda - Dłużyna, @DateTime.Now.ToShortDateString()
+                            </div>
+                            <div id="weather" class="weatherColor"></div>
+                            <span style="visibility: hidden">test</span>
+                        </div>
+                        <br />
+                        -->
+                    <br />
+                    <div style="margin-top: 10px;">
                         <!--ostatnie wpisy-->
                         @await Component.InvokeAsync(nameof(AktualnosciArchiwum))
                     </div>
@@ -168,7 +176,6 @@
         <div>
             @RenderBody()
         </div>
-    </div>
     <!--SKRYPTY-->
     <script src="~/js/jquery.js"></script>
     <script src="~/js/bootstrap.js"></script>
