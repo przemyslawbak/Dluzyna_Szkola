@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="testuj-strone.com.pl" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP\.NET\ Core\ -\ Webio\\Dluzyna_Szkola_2\\BasicConfig\\obj\\Release\\netcoreapp2\.1\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>

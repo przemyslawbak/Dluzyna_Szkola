@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="DluzynaSzkola-2" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\asus\\Desktop\\Praca\ IT\\Programowanie\\Projekty\\DluzynaSzkola\\ASP\.NET\ Core\ -\ ostatni\\Dluzyna_Szkola_2\\BasicConfig\\obj\\Release\\netcoreapp2\.0\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>
