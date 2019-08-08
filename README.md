@@ -1,3 +1,5 @@
+# Dluzyna_Szkola
+
 ## Purpose
 
 Commercial web application created from scrap for primary school, where moderators and administrators can CRUD articles, edit plugin entries. Some plugins are connected with database. My first CRUD project.
@@ -47,3 +49,7 @@ Commercial web application created from scrap for primary school, where moderato
   - jQuery,
   - Bootstrap,
   - AntiXSS.
+
+## Production
+
+27 Nov 2018
