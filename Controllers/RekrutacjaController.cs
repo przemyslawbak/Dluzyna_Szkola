@@ -7,7 +7,6 @@ using DluzynaSzkola2.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Security.Application;
 using DluzynaSzkola2.Infrastructure;
 
 namespace DluzynaSzkola2.Controllers
@@ -67,7 +66,7 @@ namespace DluzynaSzkola2.Controllers
         public async Task<IActionResult> Edit(Rekrutacja modelReturned, List<IFormFile> files)
         {
             Rekrutacja dataBase = repository.Rekrutacjas.FirstOrDefault();
-            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
+            dataBase.Tresc = HtmlUtility.RemoveInvalidHtmlTags(modelReturned.Tresc);
             repository.SaveRekrutacja(dataBase);
             if (files != null)
             {

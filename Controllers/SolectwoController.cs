@@ -1,7 +1,7 @@
-﻿using DluzynaSzkola2.Models;
+﻿using DluzynaSzkola2.Infrastructure;
+using DluzynaSzkola2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Security.Application;
 using System.Linq;
 
 namespace DluzynaSzkola2.Controllers
@@ -48,7 +48,7 @@ namespace DluzynaSzkola2.Controllers
         public ActionResult Edit(Solectwo modelReturned)
         {
             Solectwo dataBase = repository.Solectwos.FirstOrDefault();
-            dataBase.Tresc = Sanitizer.GetSafeHtmlFragment(modelReturned.Tresc);
+            dataBase.Tresc = HtmlUtility.RemoveInvalidHtmlTags(modelReturned.Tresc);
             repository.SaveSolectwo(dataBase);
             return RedirectToAction(nameof(Index));
         }

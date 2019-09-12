@@ -6,7 +6,7 @@ using DluzynaSzkola2.Models;
 using DluzynaSzkola2.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
-using Microsoft.Security.Application;
+using DluzynaSzkola2.Infrastructure;
 
 namespace DluzynaSzkola2.Controllers
 {
@@ -137,7 +137,7 @@ namespace DluzynaSzkola2.Controllers
                     if (aktualnosci.Remove == true) targetAktualnosci.AktualnosciImage = null;
                 }
                 targetAktualnosci.Dzien = aktualnosci.Dzien;
-                targetAktualnosci.Tresc = Sanitizer.GetSafeHtmlFragment(aktualnosci.Tresc);
+                targetAktualnosci.Tresc = HtmlUtility.RemoveInvalidHtmlTags(aktualnosci.Tresc);
                 targetAktualnosci.Tytul = aktualnosci.Tytul;
                 targetAktualnosci.Galeria = aktualnosci.Galeria;
                 aktualnosciRepository.SaveAktualnosci(targetAktualnosci);

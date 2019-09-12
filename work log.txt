@@ -70,3 +70,4 @@ elements against XSS attacks
 removing from controllers namespaces not in use, cleaning up unused namespaces and
 added validation to several models, corrected ColorConverter bug
 25.02 - updated Layout`s header according to requirements
+12.09.2019 - removed conflict between Ritch Text editor and AntiXSS.
